@@ -12,6 +12,11 @@ export const routes: Routes = [
       import('./features/onboarding/onboarding.routes').then((m) => m.ONBOARDING_ROUTES),
   },
   {
+    path: 'auth/login',
+    loadComponent: () =>
+      import('./features/auth/pages/login/login.page').then((m) => m.LoginPage),
+  },
+  {
     path: 'auth/register',
     loadComponent: () =>
       import('./features/auth/pages/register/register.page').then((m) => m.RegisterPage),

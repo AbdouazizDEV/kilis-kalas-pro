@@ -1,20 +1,13 @@
 // Kilis-Kalas Pro — Design tokens & Ionic theme overrides
 
 :root {
-  // Couleurs extraites du logo officiel (teal squircle + marque dorée)
-  --kk-brand-teal: #1abc9c;
-  --kk-brand-teal-shade: #17a589;
-  --kk-brand-teal-tint: #31c3a6;
-  --kk-brand-gold: #f1c40f;
-  --kk-brand-gold-deep: #e67e22;
-
-  --kk-brand-green: var(--kk-brand-teal);
+  --kk-brand-green: #10b981;
   --kk-brand-bg: #f9f9f9;
-  --kk-primary: var(--kk-brand-teal);
-  --kk-primary-shade: var(--kk-brand-teal-shade);
-  --kk-primary-tint: var(--kk-brand-teal-tint);
+  --kk-primary: #10b981;
+  --kk-primary-shade: #0ea572;
+  --kk-primary-tint: #34d399;
   --kk-secondary: #2c3e50;
-  --kk-accent: var(--kk-brand-gold);
+  --kk-accent: #f1c40f;
   --kk-danger: #e74c3c;
   --kk-success: #27ae60;
   --kk-light-bg: #f9f9f9;
@@ -30,12 +23,12 @@
   --kk-spacing-lg: 8%;
   --kk-spacing-xl: 12%;
 
-  --ion-color-primary: #1abc9c;
-  --ion-color-primary-rgb: 26, 188, 156;
+  --ion-color-primary: #10b981;
+  --ion-color-primary-rgb: 16, 185, 129;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #17a589;
-  --ion-color-primary-tint: #31c3a6;
+  --ion-color-primary-shade: #0ea572;
+  --ion-color-primary-tint: #34d399;
 
   --ion-color-secondary: #2c3e50;
   --ion-color-secondary-rgb: 44, 62, 80;

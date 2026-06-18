@@ -1,0 +1,33 @@
+// Maquette 375×812 — bouton pilule « Commençons »
+.app-pill-button {
+  --background: var(--kk-brand-green, #10b981);
+  --background-activated: var(--kk-primary-shade, #0ea572);
+  --background-hover: var(--kk-primary-shade, #0ea572);
+  --background-focused: var(--kk-primary-shade, #0ea572);
+  --border-radius: 100px;
+  --box-shadow: none;
+  --color: #000000;
+  --padding-top: 0;
+  --padding-bottom: 0%;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  width: 100%;
+  min-height: 50px;
+  height: auto;
+  margin: 0;
+  font-family: var(--kk-font-body);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (min-width: 768px) {
+  .app-pill-button {
+    min-height: 56px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

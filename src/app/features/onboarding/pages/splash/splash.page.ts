@@ -6,7 +6,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-splash',
   standalone: true,
-  imports: [IonContent, IonGrid, IonRow, IonCol, IonImg, IonText, TranslatePipe],
+  imports: [IonContent, IonGrid, IonRow, IonCol, IonText, TranslatePipe, IonImg],
   templateUrl: './splash.page.html',
   styleUrls: ['./splash.page.scss'],
 })
@@ -15,7 +15,7 @@ export class SplashPage implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.router.navigate(['/auth/register'], { replaceUrl: true });
+      this.router.navigate(['/onboarding/welcome'], { replaceUrl: true });
     }, 2800);
   }
 }

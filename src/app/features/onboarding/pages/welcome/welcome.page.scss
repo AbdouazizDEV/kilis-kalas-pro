@@ -1,0 +1,202 @@
+// Référence maquette : 375 × 812 — toutes les mesures en %
+.welcome {
+  --welcome-pad-x: 6.4%;
+  --welcome-content-w: 89.33%;
+  --welcome-hero-w: 97.38%;
+  --welcome-hero-h: 51.97%;
+  --welcome-hero-left: 2.79%;
+  --welcome-hero-top: 14.72%;
+  --welcome-title-size: 150%;
+  --welcome-title-lh: 158%;
+  --welcome-desc-size: 81.25%;
+  --welcome-desc-lh: 162%;
+  --welcome-text-gap: 2.22%;
+  --welcome-footer-bottom: 6.03%;
+  --welcome-home-bar-h: 4.19%;
+  --welcome-home-bar-w: 35.73%;
+
+  --background: var(--kk-brand-bg, #f9f9f9);
+  font-size: 100%;
+
+  &__layout {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    /* padding: 0 var(--welcome-pad-x) var(--welcome-footer-bottom); */
+    box-sizing: border-box;
+  }
+
+  &__decoration-row {
+    flex: 0 0 11.58%;
+    width: 94.01%;
+    align-self: flex-start;
+    margin-left: -0.27%;
+    margin-top: 7.94%;
+  }
+
+  &__decoration-col {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  &__route {
+    width: 85.73%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  &__delivery-icon {
+    position: absolute;
+    right: 2.5%;
+    top: 9.5%;
+    width: 6.4%;
+    height: 25.5%;
+    color: var(--kk-brand-green, #10b981);
+    transform: rotate(21.33deg);
+  }
+
+  &__hero-row {
+    flex: 0 0 var(--welcome-hero-h);
+    width: var(--welcome-hero-w);
+    margin-top: 1%;
+    overflow: visible;
+  }
+
+  &__hero-col {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__hero {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+    /* border: 1px solid var(--kk-brand-green, #10b981);
+    background: linear-gradient(
+      0deg,
+      rgba(16, 185, 129, 0.1),
+      rgba(16, 185, 129, 0.1)
+    ); */
+  }
+
+  &__text-row {
+    flex: 0 0 auto;
+    width: var(--welcome-content-w);
+    margin-top: 2.22%;
+  }
+
+  &__text-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--welcome-text-gap);
+    width: 100%;
+    padding: 0;
+  }
+
+  &__title {
+    display: block;
+    white-space: normal;
+    width: 100%;
+    font-family: var(--kk-font-body);
+    font-weight: 500;
+    font-size: var(--welcome-title-size);
+    line-height: var(--welcome-title-lh);
+    color: #000000;
+    margin: 0;
+  }
+
+  &__title ion-text {
+    display: inline;
+  }
+
+  &__title-highlight {
+    color: var(--kk-brand-green, #10b981);
+    font-weight: 500;
+  }
+
+  &__description {
+    display: block;
+    width: 100%;
+    font-family: var(--kk-font-body);
+    font-weight: 300;
+    font-size: var(--welcome-desc-size);
+    line-height: var(--welcome-desc-lh);
+    color: #000000;
+  }
+
+  &__footer-row {
+    flex: 0 0 auto;
+    width: var(--welcome-content-w);
+    margin-top: 7%;
+    padding-top: 0%;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__footer-col {
+    width: 100%;
+    padding: 0;
+  }
+
+  &__home-bar-row {
+    flex: 0 0 var(--welcome-home-bar-h);
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1.6%;
+  }
+
+  &__home-bar {
+    display: inline-block;
+    width: var(--welcome-home-bar-w);
+    height: 0.62%;
+    min-height: 5px;
+    background: #000000;
+    border-radius: 3px;
+  }
+}
+
+@media (min-width: 768px) {
+  .welcome {
+    --welcome-pad-x: 8%;
+    --welcome-content-w: 72%;
+    --welcome-hero-w: 78%;
+    --welcome-hero-h: 48%;
+    --welcome-title-size: 175%;
+    --welcome-desc-size: 93.75%;
+    font-size: 112.5%;
+
+    &__layout {
+      max-width: 640px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .welcome {
+    --welcome-content-w: 56%;
+    --welcome-hero-w: 62%;
+    --welcome-hero-h: 46%;
+    font-size: 125%;
+
+    &__layout {
+      max-width: 720px;
+    }
+  }
+}

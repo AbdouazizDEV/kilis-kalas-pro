@@ -1,7 +1,32 @@
 {
   "ONBOARDING": {
     "SPLASH": {
-      "TAGLINE": "Pro Chauffeur — Bambey"
+      "BRAND": "Kilis Kalas"
+    },
+    "WELCOME": {
+      "HERO_ALT": "Chauffeur moto à Bambey",
+      "TITLE_PART1": "Votre prochaine ",
+      "TITLE_HIGHLIGHT1": "course",
+      "TITLE_PART2": " ",
+      "TITLE_HIGHLIGHT2": "commence",
+      "TITLE_PART3": " ici.",
+      "DESCRIPTION": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been",
+      "CTA": "Commençons"
+    }
+  },
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Connexion",
+      "SUBTITLE": "Salut! Bon retour parmi nous!",
+      "IDENTIFIER_LABEL": "Email ou numéro de téléphone",
+      "PASSWORD_LABEL": "Mot de passe",
+      "PLACEHOLDER": "Tapez ici",
+      "FORGOT_PASSWORD": "mot de passe oublié",
+      "SUBMIT": "Se connecter",
+      "NO_ACCOUNT": "Vous n'avez pas de compte ?",
+      "CREATE_ACCOUNT": "Créer un compte",
+      "OR": "ou",
+      "ERROR": "Identifiants incorrects. Veuillez réessayer."
     }
   },
   "COMMON": {

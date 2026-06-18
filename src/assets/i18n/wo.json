@@ -1,7 +1,32 @@
 {
   "ONBOARDING": {
     "SPLASH": {
-      "TAGLINE": "Pro Chauffeur — Bambey"
+      "BRAND": "Kilis Kalas"
+    },
+    "WELCOME": {
+      "HERO_ALT": "Chauffeur moto ci Bambey",
+      "TITLE_PART1": "Sa prochaine ",
+      "TITLE_HIGHLIGHT1": "course",
+      "TITLE_PART2": " ",
+      "TITLE_HIGHLIGHT2": "daldi",
+      "TITLE_PART3": " fii.",
+      "DESCRIPTION": "Lorem Ipsum mooy tekst bu saafaan ngir seetlu ak bindu.",
+      "CTA": "Tàmbali"
+    }
+  },
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": " Dugg",
+      "SUBTITLE": " Na nga fi! Dalal ak jamm!",
+      "IDENTIFIER_LABEL": " Email walla nimero téléphone",
+      "PASSWORD_LABEL": " Baat bu dugg",
+      "PLACEHOLDER": " Bindal fii",
+      "FORGOT_PASSWORD": " baat bu dugg fatte na",
+      "SUBMIT": " Dugg",
+      "NO_ACCOUNT": " Amuloo compte ?",
+      "CREATE_ACCOUNT": " Sos compte",
+      "OR": " walla",
+      "ERROR": " Xibaar yi baaxul. Jéemaatal."
     }
   },
   "COMMON": {

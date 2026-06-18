@@ -1,13 +1,15 @@
-// Splash — logo officiel Kilis-Kalas Pro (squircle teal + marque dorée)
+// Référence maquette : 375 × 812 — mesures en %
 .splash {
-  --splash-logo-size: 42%;
+  --splash-brand-w: 59.73%;
+  --splash-brand-min-h: 9.61%;
+  --splash-brand-size: 33%;
+  --splash-brand-lh: 160%;
   --splash-home-bar-h: 4.19%;
   --splash-home-bar-w: 35.73%;
   --splash-home-bar-pill-h: 0.62%;
   --splash-home-bar-pill-radius: 37.5%;
 
-  // Teal de l'icône applicative
-  --background: var(--kk-brand-teal, #1abc9c);
+  --background: var(--kk-brand-green, #10b981);
 
   &__grid {
     position: relative;
@@ -22,16 +24,14 @@
   }
 
   &__col {
+    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
-    gap: 20px;
-    padding: 0 8%;
+    padding: 0;
   }
-
   &__logo {
     width: var(--splash-logo-size);
     max-width: 220px;
@@ -42,13 +42,24 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
   }
 
-  &__tagline {
-    font-family: var(--kk-font-body);
-    font-size: 1rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.95);
+  &__brand {
+    position: absolute;
+    width: var(--splash-brand-w);
+    max-width: 280px;
+    min-height: var(--splash-brand-min-h);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--kk-font-display);
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--splash-brand-size);
+    line-height: var(--splash-brand-lh);
     text-align: center;
-    letter-spacing: 0.03em;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__home-bar-row {
@@ -75,6 +86,14 @@
 
 @media (min-width: 768px) {
   .splash {
-    --splash-logo-size: 28%;
+    --splash-brand-size: 8%;
+    --splash-brand-w: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .splash {
+    --splash-brand-size: 6%;
+    --splash-brand-w: 32%;
   }
 }

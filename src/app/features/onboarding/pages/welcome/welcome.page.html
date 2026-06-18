@@ -1,0 +1,59 @@
+<ion-content [fullscreen]="true" class="welcome" [scrollY]="false">
+  <ion-grid class="welcome__layout">
+   <!--  <ion-row class="welcome__decoration-row">
+      <ion-col size="12" class="welcome__decoration-col">
+        <ion-img
+          src="assets/images/welcome-route.svg"
+          alt=""
+          class="welcome__route"
+          aria-hidden="true"
+        ></ion-img>
+        <ion-icon name="bicycle-outline" class="welcome__delivery-icon" aria-hidden="true"></ion-icon>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row class="welcome__hero-row ion-align-items-center ion-justify-content-center">
+      <ion-col size="12" class="welcome__hero-col">
+        <ion-img
+          src="assets/images/vector-27.png"
+          alt="{{ 'ONBOARDING.WELCOME.HERO_ALT' | translate }}"
+          class="welcome__hero"
+        ></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="welcome__text-row">
+      <ion-col size="12" class="welcome__text-col">
+        <ion-label class="welcome__title">
+          <ion-text>{{ 'ONBOARDING.WELCOME.TITLE_PART1' | translate }}</ion-text>
+          <ion-text class="welcome__title-highlight">{{
+            'ONBOARDING.WELCOME.TITLE_HIGHLIGHT1' | translate
+          }}</ion-text>
+          <ion-text>{{ 'ONBOARDING.WELCOME.TITLE_PART2' | translate }}</ion-text>
+          <ion-text class="welcome__title-highlight">{{
+            'ONBOARDING.WELCOME.TITLE_HIGHLIGHT2' | translate
+          }}</ion-text>
+          <ion-text>{{ 'ONBOARDING.WELCOME.TITLE_PART3' | translate }}</ion-text>
+        </ion-label>
+
+        <ion-text class="welcome__description">{{
+          'ONBOARDING.WELCOME.DESCRIPTION' | translate
+        }}</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="welcome__footer-row">
+      <ion-col size="12" class="welcome__footer-col">
+        <app-pill-button routerLink="/auth/login">
+          {{ 'ONBOARDING.WELCOME.CTA' | translate }}
+        </app-pill-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row class="welcome__home-bar-row">
+      <ion-col size="12" class="ion-text-center">
+        <ion-text class="welcome__home-bar"></ion-text>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+</ion-content>
