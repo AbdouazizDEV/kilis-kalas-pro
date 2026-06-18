@@ -1,0 +1,11 @@
+{
+  "id": "driver-001",
+  "firstName": "Mamadou",
+  "lastName": "Diop",
+  "phone": "+221771234567",
+  "email": "mamadou.diop@example.sn",
+  "profilePhotoUrl": "",
+  "transportMode": "moto",
+  "verificationStatus": "pending",
+  "createdAt": "2026-06-10T08:30:00.000Z"
+}

@@ -1,0 +1,14 @@
+<div class="status-toggle" [class.status-toggle--available]="available">
+  <div class="status-toggle__info">
+    <span class="status-toggle__dot"></span>
+    <span class="status-toggle__label">
+      {{ available ? ('DRIVER.STATUS.AVAILABLE' | translate) : ('DRIVER.STATUS.UNAVAILABLE' | translate) }}
+    </span>
+  </div>
+  <ion-toggle
+    [checked]="available"
+    [disabled]="disabled"
+    color="success"
+    (ionChange)="onToggle($event)"
+  ></ion-toggle>
+</div>

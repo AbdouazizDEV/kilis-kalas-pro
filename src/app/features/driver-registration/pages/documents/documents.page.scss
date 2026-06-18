@@ -1,0 +1,12 @@
+.documents-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.documents-hint {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,70 @@
+<ion-content [fullscreen]="true" class="register-page">
+  <div class="page-container">
+    <h1 class="page-title">{{ 'DRIVER.REGISTER.TITLE' | translate }}</h1>
+    <p class="page-subtitle">{{ 'DRIVER.REGISTER.SUBTITLE' | translate }}</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="register-page__form">
+      <app-input
+        formControlName="firstName"
+        [label]="'DRIVER.REGISTER.FIRST_NAME' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+        [errorMessage]="form.controls.firstName.touched && form.controls.firstName.invalid ? ('COMMON.REQUIRED' | translate) : ''"
+      ></app-input>
+
+      <app-input
+        formControlName="lastName"
+        [label]="'DRIVER.REGISTER.LAST_NAME' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+        [errorMessage]="form.controls.lastName.touched && form.controls.lastName.invalid ? ('COMMON.REQUIRED' | translate) : ''"
+      ></app-input>
+
+      <app-input
+        formControlName="phone"
+        type="tel"
+        [label]="'DRIVER.REGISTER.PHONE' | translate"
+        placeholder="+221771234567"
+        variant="pill"
+        [errorMessage]="form.controls.phone.touched && form.controls.phone.invalid ? ('DRIVER.REGISTER.PHONE_INVALID' | translate) : ''"
+      ></app-input>
+
+      <app-input
+        formControlName="email"
+        type="email"
+        [label]="'DRIVER.REGISTER.EMAIL' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+      ></app-input>
+
+      <app-input
+        formControlName="password"
+        type="password"
+        [label]="'DRIVER.REGISTER.PASSWORD' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+        [showPasswordToggle]="true"
+        [errorMessage]="form.controls.password.touched && form.controls.password.invalid ? ('DRIVER.REGISTER.PASSWORD_MIN' | translate) : ''"
+      ></app-input>
+
+      <app-input
+        formControlName="confirmPassword"
+        type="password"
+        [label]="'DRIVER.REGISTER.CONFIRM_PASSWORD' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+        [showPasswordToggle]="true"
+      ></app-input>
+
+      @if (errorMessage()) {
+        <ion-text color="danger" class="register-page__error">
+          {{ errorMessage() | translate }}
+        </ion-text>
+      }
+
+      <app-button [loading]="loading()" [disabled]="form.invalid" (buttonClick)="submit()">
+        {{ 'COMMON.CONTINUE' | translate }}
+      </app-button>
+    </form>
+  </div>
+</ion-content>

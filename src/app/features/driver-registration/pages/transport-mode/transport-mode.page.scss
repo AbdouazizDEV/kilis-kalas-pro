@@ -1,0 +1,48 @@
+.transport-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.transport-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--kk-border-radius);
+  background: var(--ion-card-background, #fff);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+
+  &--selected {
+    border-color: var(--kk-primary);
+    background: rgba(16, 185, 129, 0.08);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: var(--kk-primary);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ion-text-color);
+  }
+
+  &__desc {
+    font-size: 0.85rem;
+    color: var(--kk-text-muted);
+  }
+}

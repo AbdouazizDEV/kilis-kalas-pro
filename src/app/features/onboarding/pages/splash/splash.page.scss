@@ -1,0 +1,80 @@
+// Splash — logo officiel Kilis-Kalas Pro (squircle teal + marque dorée)
+.splash {
+  --splash-logo-size: 42%;
+  --splash-home-bar-h: 4.19%;
+  --splash-home-bar-w: 35.73%;
+  --splash-home-bar-pill-h: 0.62%;
+  --splash-home-bar-pill-radius: 37.5%;
+
+  // Teal de l'icône applicative
+  --background: var(--kk-brand-teal, #1abc9c);
+
+  &__grid {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  &__hero-row {
+    height: 95.81%;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+    padding: 0 8%;
+  }
+
+  &__logo {
+    width: var(--splash-logo-size);
+    max-width: 220px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 22%;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  &__tagline {
+    font-family: var(--kk-font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  &__home-bar-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--splash-home-bar-h);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 1.6%;
+  }
+
+  &__home-bar {
+    display: inline-block;
+    width: var(--splash-home-bar-w);
+    height: var(--splash-home-bar-pill-h);
+    background: #000000;
+    border-radius: var(--splash-home-bar-pill-radius);
+  }
+}
+
+@media (min-width: 768px) {
+  .splash {
+    --splash-logo-size: 28%;
+  }
+}

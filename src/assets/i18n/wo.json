@@ -1,0 +1,87 @@
+{
+  "ONBOARDING": {
+    "SPLASH": {
+      "TAGLINE": "Pro Chauffeur — Bambey"
+    }
+  },
+  "COMMON": {
+    "LOADING": "Mi ngi yor...",
+    "CONTINUE": " Kontine",
+    "BACK": " Dellu",
+    "PLACEHOLDER": " Bindal fii",
+    "REQUIRED": " Champ bi laaj na"
+  },
+  "DRIVER": {
+    "REGISTER": {
+      "TITLE": " Sos compte chauffeur",
+      "SUBTITLE": " Boole ci Kilis Kalas te tàmbali ñu am à Bambey.",
+      "FIRST_NAME": " Tur",
+      "LAST_NAME": " Sant",
+      "PHONE": " Nimero téléphone",
+      "EMAIL": " Email (ci lu la neex)",
+      "PASSWORD": " Baat bu dugg",
+      "CONFIRM_PASSWORD": " Dëggal baat bi",
+      "PHONE_INVALID": " Nimero Sénégal bu baaxul",
+      "PASSWORD_MIN": " 6 caractères minimum",
+      "PASSWORD_MISMATCH": " Baat yi matuñu"
+    },
+    "TRANSPORT": {
+      "TITLE": " Anam gu dëkk",
+      "SUBTITLE": " Tànn anam gu dëkk bi nga jëfandikoo.",
+      "MOTO": " Moto / Jakarta",
+      "MOTO_DESC": " Ñaari roue, yoon yu gaaw",
+      "TAXI": " Taxi",
+      "TAXI_DESC": " Oto taxi",
+      "CLANDO": " Clando",
+      "CLANDO_DESC": " Transport bu bari nit"
+    },
+    "DOCUMENTS": {
+      "TITLE": " Dokumaan yi",
+      "SUBTITLE": " Yónnee sa dokumaan ngir seetlu.",
+      "ID_FRONT": " Kart d'identité (devant)",
+      "ID_BACK": " Kart d'identité (derrière)",
+      "LICENSE_FRONT": " Permis (devant)",
+      "LICENSE_BACK": " Permis (derrière)",
+      "INSURANCE": " Assurance (ci lu la neex)",
+      "TAP_TO_UPLOAD": " Bësal ngir yónnee",
+      "OPTIONAL": " Ci lu la neex",
+      "REQUIRED_HINT": " Ñeenti dokumaan yu njëkk laaj nañu."
+    },
+    "VEHICLE": {
+      "TITLE": " Xibaar oto bi",
+      "SUBTITLE": " Bindal xibaar oto bi.",
+      "BRAND": " Marque",
+      "MODEL": " Modèle",
+      "PLATE": " Plaque",
+      "COLOR": " Melo",
+      "YEAR": " At (ci lu la neex)"
+    },
+    "PROFILE_PHOTO": {
+      "TITLE": " Nataal profil",
+      "SUBTITLE": " Nataal bu sell ngir passagers yi.",
+      "UPLOAD": " Yokk nataal",
+      "HINT": " JPG walla PNG"
+    },
+    "SUMMARY": {
+      "TITLE": " Récapitulatif",
+      "SUBTITLE": " Seetal sa xibaar balaa yónnee.",
+      "TRANSPORT": " Transport",
+      "VEHICLE": " Oto",
+      "DOCUMENTS": " Dokumaan",
+      "SUBMIT": " Yónnee sama demande",
+      "ERROR": " Yónnee bi lajj. Jéemaatal."
+    },
+    "PENDING": {
+      "TITLE": " Dalal ak jamm ci Kilis Kalas !",
+      "SUBTITLE": " Sa demande d'inscription mi ngi seetlu.",
+      "STEP_SUBMITTED": " Dossier bi yónnee na",
+      "STEP_REVIEW": " Seetlu mi ngi dem (24-48h)",
+      "STEP_NOTIFY": " Dinañu la xibaar ci SMS bu ñu ko nangu",
+      "NOTE": " Dinaa mën a dugg te am courses bu ñu nangu sa compte."
+    },
+    "STATUS": {
+      "AVAILABLE": " Disponible",
+      "UNAVAILABLE": " Indisponible"
+    }
+  }
+}

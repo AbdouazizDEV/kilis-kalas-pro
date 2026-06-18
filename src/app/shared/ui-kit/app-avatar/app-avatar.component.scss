@@ -1,0 +1,27 @@
+.app-avatar {
+  --border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 60%;
+    color: var(--kk-primary);
+  }
+
+  &--sm {
+    width: 48px;
+    height: 48px;
+  }
+
+  &--md {
+    width: 72px;
+    height: 72px;
+  }
+
+  &--lg {
+    width: 120px;
+    height: 120px;
+  }
+}

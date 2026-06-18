@@ -1,0 +1,35 @@
+{
+  "daily": {
+    "total": 12500,
+    "rideCount": 8,
+    "periodLabel": "Aujourd'hui"
+  },
+  "weekly": {
+    "total": 78500,
+    "rideCount": 42,
+    "periodLabel": "Cette semaine"
+  },
+  "history": [
+    {
+      "id": "earn-001",
+      "rideId": "ride-h-001",
+      "amount": 1500,
+      "date": "2026-06-18T09:15:00.000Z",
+      "passengerName": "Awa Fall"
+    },
+    {
+      "id": "earn-002",
+      "rideId": "ride-h-002",
+      "amount": 2000,
+      "date": "2026-06-18T10:30:00.000Z",
+      "passengerName": "Ousmane Ba"
+    },
+    {
+      "id": "earn-003",
+      "rideId": "ride-h-003",
+      "amount": 1750,
+      "date": "2026-06-17T18:45:00.000Z",
+      "passengerName": "Mariama Sow"
+    }
+  ]
+}

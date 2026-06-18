@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <app-back-button></app-back-button>
+    <h1 class="page-title">{{ 'DRIVER.VEHICLE.TITLE' | translate }}</h1>
+    <p class="page-subtitle">{{ 'DRIVER.VEHICLE.SUBTITLE' | translate }}</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="vehicle-form">
+      <app-input
+        formControlName="vehicleBrand"
+        [label]="'DRIVER.VEHICLE.BRAND' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+      ></app-input>
+
+      <app-input
+        formControlName="vehicleModel"
+        [label]="'DRIVER.VEHICLE.MODEL' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+      ></app-input>
+
+      <app-input
+        formControlName="vehiclePlate"
+        [label]="'DRIVER.VEHICLE.PLATE' | translate"
+        placeholder="DK-1234-AB"
+        variant="pill"
+      ></app-input>
+
+      <app-input
+        formControlName="vehicleColor"
+        [label]="'DRIVER.VEHICLE.COLOR' | translate"
+        [placeholder]="'COMMON.PLACEHOLDER' | translate"
+        variant="pill"
+      ></app-input>
+
+      <app-input
+        formControlName="vehicleYear"
+        type="number"
+        [label]="'DRIVER.VEHICLE.YEAR' | translate"
+        placeholder="2020"
+        variant="pill"
+      ></app-input>
+
+      <app-button [disabled]="form.invalid" (buttonClick)="submit()">
+        {{ 'COMMON.CONTINUE' | translate }}
+      </app-button>
+    </form>
+  </div>
+</ion-content>

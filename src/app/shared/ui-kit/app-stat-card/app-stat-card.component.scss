@@ -1,0 +1,30 @@
+.stat-card {
+  padding: 16px;
+  border-radius: var(--kk-border-radius);
+  background: linear-gradient(135deg, var(--kk-primary) 0%, var(--kk-primary-shade) 100%);
+  color: #fff;
+
+  &__label {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 8px;
+  }
+
+  &__value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  &__value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: var(--kk-font-display);
+  }
+
+  &__suffix {
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,31 @@
+.summary-page {
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  &__phone {
+    display: block;
+    color: var(--kk-text-muted);
+    font-size: 0.9rem;
+  }
+
+  &__docs {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  &__submit {
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,22 @@
+<label class="document-upload">
+  <input
+    type="file"
+    class="document-upload__input"
+    [accept]="accept"
+    (change)="onFileChange($event)"
+  />
+  <div class="document-upload__box" [class.document-upload__box--filled]="!!previewUrl">
+    @if (previewUrl) {
+      <img [src]="previewUrl" [alt]="label" class="document-upload__preview" />
+    } @else {
+      <ion-icon name="cloud-upload-outline" class="document-upload__icon"></ion-icon>
+      <ion-text class="document-upload__label">{{ label }}</ion-text>
+      @if (hint) {
+        <ion-text class="document-upload__hint">{{ hint }}</ion-text>
+      }
+    }
+    <div class="document-upload__overlay">
+      <ion-icon name="camera-outline"></ion-icon>
+    </div>
+  </div>
+</label>

@@ -1,0 +1,15 @@
+.app-card {
+  --background: var(--ion-card-background, #ffffff);
+  border-radius: var(--kk-border-radius);
+  margin: 0 0 4%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+  &--clickable {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}

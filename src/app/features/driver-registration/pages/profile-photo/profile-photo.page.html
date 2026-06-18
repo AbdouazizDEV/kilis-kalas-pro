@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container profile-photo-page">
+    <app-back-button></app-back-button>
+    <h1 class="page-title">{{ 'DRIVER.PROFILE_PHOTO.TITLE' | translate }}</h1>
+    <p class="page-subtitle">{{ 'DRIVER.PROFILE_PHOTO.SUBTITLE' | translate }}</p>
+
+    <div class="profile-photo-page__preview">
+      <app-avatar
+        size="lg"
+        [src]="registrationState.draft$().profilePhoto?.dataUrl ?? ''"
+        [alt]="registrationState.draft$().firstName"
+      ></app-avatar>
+    </div>
+
+    <app-document-upload
+      documentType="profile_photo"
+      [label]="'DRIVER.PROFILE_PHOTO.UPLOAD' | translate"
+      [hint]="'DRIVER.PROFILE_PHOTO.HINT' | translate"
+      [previewUrl]="registrationState.draft$().profilePhoto?.dataUrl ?? ''"
+      (fileSelected)="onFileSelected($event)"
+    ></app-document-upload>
+
+    <app-button
+      class="profile-photo-page__cta"
+      [disabled]="!registrationState.isProfilePhotoComplete()"
+      (buttonClick)="continue()"
+    >
+      {{ 'COMMON.CONTINUE' | translate }}
+    </app-button>
+  </div>
+</ion-content>

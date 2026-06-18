@@ -1,0 +1,87 @@
+{
+  "ONBOARDING": {
+    "SPLASH": {
+      "TAGLINE": "Pro Chauffeur — Bambey"
+    }
+  },
+  "COMMON": {
+    "LOADING": "Chargement...",
+    "CONTINUE": "Continuer",
+    "BACK": "Retour",
+    "PLACEHOLDER": "Tapez ici",
+    "REQUIRED": "Ce champ est obligatoire"
+  },
+  "DRIVER": {
+    "REGISTER": {
+      "TITLE": "Créer un compte chauffeur",
+      "SUBTITLE": "Rejoignez Kilis Kalas et commencez à gagner à Bambey.",
+      "FIRST_NAME": "Prénom",
+      "LAST_NAME": "Nom",
+      "PHONE": "Numéro de téléphone",
+      "EMAIL": "Email (optionnel)",
+      "PASSWORD": "Mot de passe",
+      "CONFIRM_PASSWORD": "Confirmer le mot de passe",
+      "PHONE_INVALID": "Numéro sénégalais invalide (+221...)",
+      "PASSWORD_MIN": "Minimum 6 caractères",
+      "PASSWORD_MISMATCH": "Les mots de passe ne correspondent pas"
+    },
+    "TRANSPORT": {
+      "TITLE": "Mode de transport",
+      "SUBTITLE": "Choisissez le type de véhicule que vous utilisez.",
+      "MOTO": "Moto / Jakarta",
+      "MOTO_DESC": "Deux-roues, courses rapides en ville",
+      "TAXI": "Taxi",
+      "TAXI_DESC": "Voiture berline ou break",
+      "CLANDO": "Clando",
+      "CLANDO_DESC": "Transport collectif ou minibus"
+    },
+    "DOCUMENTS": {
+      "TITLE": "Pièces justificatives",
+      "SUBTITLE": "Téléversez vos documents pour la validation admin.",
+      "ID_FRONT": "Pièce d'identité (recto)",
+      "ID_BACK": "Pièce d'identité (verso)",
+      "LICENSE_FRONT": "Permis de conduire (recto)",
+      "LICENSE_BACK": "Permis de conduire (verso)",
+      "INSURANCE": "Assurance (optionnel)",
+      "TAP_TO_UPLOAD": "Appuyez pour téléverser",
+      "OPTIONAL": "Facultatif",
+      "REQUIRED_HINT": "Les 4 premiers documents sont obligatoires."
+    },
+    "VEHICLE": {
+      "TITLE": "Informations véhicule",
+      "SUBTITLE": "Renseignez les détails de votre engin.",
+      "BRAND": "Marque",
+      "MODEL": "Modèle",
+      "PLATE": "Immatriculation",
+      "COLOR": "Couleur",
+      "YEAR": "Année (optionnel)"
+    },
+    "PROFILE_PHOTO": {
+      "TITLE": "Photo de profil",
+      "SUBTITLE": "Une photo claire de votre visage pour les passagers.",
+      "UPLOAD": "Ajouter une photo",
+      "HINT": "JPG ou PNG, visage centré"
+    },
+    "SUMMARY": {
+      "TITLE": "Récapitulatif",
+      "SUBTITLE": "Vérifiez vos informations avant envoi.",
+      "TRANSPORT": "Transport",
+      "VEHICLE": "Véhicule",
+      "DOCUMENTS": "Documents",
+      "SUBMIT": "Soumettre ma demande",
+      "ERROR": "Échec de la soumission. Réessayez."
+    },
+    "PENDING": {
+      "TITLE": "Bienvenue chez Kilis Kalas !",
+      "SUBTITLE": "Votre demande d'inscription est en cours de validation par notre équipe.",
+      "STEP_SUBMITTED": "Dossier soumis avec succès",
+      "STEP_REVIEW": "Vérification en cours (24-48h)",
+      "STEP_NOTIFY": "Vous serez notifié par SMS une fois approuvé",
+      "NOTE": "Vous pourrez vous connecter et recevoir des courses dès validation de votre compte."
+    },
+    "STATUS": {
+      "AVAILABLE": "Disponible",
+      "UNAVAILABLE": "Indisponible"
+    }
+  }
+}

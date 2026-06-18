@@ -1,0 +1,36 @@
+.status-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--kk-border-radius);
+  background: var(--ion-card-background, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  &--available {
+    border-color: rgba(16, 185, 129, 0.35);
+    background: rgba(16, 185, 129, 0.08);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--kk-danger);
+  }
+
+  &--available &__dot {
+    background: var(--kk-success);
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+}

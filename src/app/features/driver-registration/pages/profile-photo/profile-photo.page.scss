@@ -1,0 +1,11 @@
+.profile-photo-page {
+  &__preview {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  &__cta {
+    margin-top: 24px;
+  }
+}

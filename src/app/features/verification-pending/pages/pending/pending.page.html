@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true" class="pending-page">
+  <div class="pending-page__content">
+    <div class="pending-page__icon-wrap">
+      <ion-icon name="time-outline" class="pending-page__icon"></ion-icon>
+    </div>
+
+    <h1 class="pending-page__title">{{ 'DRIVER.PENDING.TITLE' | translate }}</h1>
+    <p class="pending-page__subtitle">{{ 'DRIVER.PENDING.SUBTITLE' | translate }}</p>
+
+    <ul class="pending-page__steps">
+      <li>
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        {{ 'DRIVER.PENDING.STEP_SUBMITTED' | translate }}
+      </li>
+      <li>
+        <ion-icon name="time-outline"></ion-icon>
+        {{ 'DRIVER.PENDING.STEP_REVIEW' | translate }}
+      </li>
+      <li>{{ 'DRIVER.PENDING.STEP_NOTIFY' | translate }}</li>
+    </ul>
+
+    <p class="pending-page__note">{{ 'DRIVER.PENDING.NOTE' | translate }}</p>
+  </div>
+</ion-content>

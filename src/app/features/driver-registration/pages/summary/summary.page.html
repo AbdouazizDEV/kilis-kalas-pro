@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container summary-page">
+    <app-back-button></app-back-button>
+    <h1 class="page-title">{{ 'DRIVER.SUMMARY.TITLE' | translate }}</h1>
+    <p class="page-subtitle">{{ 'DRIVER.SUMMARY.SUBTITLE' | translate }}</p>
+
+    <div class="summary-page__header">
+      <app-avatar size="md" [src]="draft().profilePhoto?.dataUrl ?? ''" [alt]="draft().firstName"></app-avatar>
+      <div>
+        <ion-text class="summary-page__name">{{ draft().firstName }} {{ draft().lastName }}</ion-text>
+        <ion-text class="summary-page__phone">{{ draft().phone }}</ion-text>
+      </div>
+    </div>
+
+    <app-card [title]="'DRIVER.SUMMARY.TRANSPORT' | translate">
+      <ion-text>{{ transportLabelKey() | translate }}</ion-text>
+    </app-card>
+
+    <app-card [title]="'DRIVER.SUMMARY.VEHICLE' | translate">
+      <p>{{ draft().vehicleBrand }} {{ draft().vehicleModel }}</p>
+      <p>{{ draft().vehiclePlate }} — {{ draft().vehicleColor }}</p>
+      @if (draft().vehicleYear) {
+        <p>{{ draft().vehicleYear }}</p>
+      }
+    </app-card>
+
+    <app-card [title]="'DRIVER.SUMMARY.DOCUMENTS' | translate">
+      <ul class="summary-page__docs">
+        <li>{{ 'DRIVER.DOCUMENTS.ID_FRONT' | translate }} — {{ draft().nationalIdFront ? '✓' : '✗' }}</li>
+        <li>{{ 'DRIVER.DOCUMENTS.ID_BACK' | translate }} — {{ draft().nationalIdBack ? '✓' : '✗' }}</li>
+        <li>{{ 'DRIVER.DOCUMENTS.LICENSE_FRONT' | translate }} — {{ draft().licenseFront ? '✓' : '✗' }}</li>
+        <li>{{ 'DRIVER.DOCUMENTS.LICENSE_BACK' | translate }} — {{ draft().licenseBack ? '✓' : '✗' }}</li>
+      </ul>
+    </app-card>
+
+    @if (errorMessage()) {
+      <ion-text color="danger">{{ errorMessage() | translate }}</ion-text>
+    }
+
+    <app-button
+      class="summary-page__submit"
+      [loading]="loading()"
+      (buttonClick)="submit()"
+    >
+      {{ 'DRIVER.SUMMARY.SUBMIT' | translate }}
+    </app-button>
+  </div>
+</ion-content>

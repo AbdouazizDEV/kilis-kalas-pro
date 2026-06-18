@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true">
+  <div class="page-container">
+    <app-back-button></app-back-button>
+    <h1 class="page-title">{{ 'DRIVER.DOCUMENTS.TITLE' | translate }}</h1>
+    <p class="page-subtitle">{{ 'DRIVER.DOCUMENTS.SUBTITLE' | translate }}</p>
+
+    <div class="documents-grid">
+      <app-document-upload
+        documentType="national_id_front"
+        [label]="'DRIVER.DOCUMENTS.ID_FRONT' | translate"
+        [hint]="'DRIVER.DOCUMENTS.TAP_TO_UPLOAD' | translate"
+        [previewUrl]="registrationState.draft$().nationalIdFront?.dataUrl ?? ''"
+        (fileSelected)="onFileSelected($event)"
+      ></app-document-upload>
+
+      <app-document-upload
+        documentType="national_id_back"
+        [label]="'DRIVER.DOCUMENTS.ID_BACK' | translate"
+        [hint]="'DRIVER.DOCUMENTS.TAP_TO_UPLOAD' | translate"
+        [previewUrl]="registrationState.draft$().nationalIdBack?.dataUrl ?? ''"
+        (fileSelected)="onFileSelected($event)"
+      ></app-document-upload>
+
+      <app-document-upload
+        documentType="license_front"
+        [label]="'DRIVER.DOCUMENTS.LICENSE_FRONT' | translate"
+        [hint]="'DRIVER.DOCUMENTS.TAP_TO_UPLOAD' | translate"
+        [previewUrl]="registrationState.draft$().licenseFront?.dataUrl ?? ''"
+        (fileSelected)="onFileSelected($event)"
+      ></app-document-upload>
+
+      <app-document-upload
+        documentType="license_back"
+        [label]="'DRIVER.DOCUMENTS.LICENSE_BACK' | translate"
+        [hint]="'DRIVER.DOCUMENTS.TAP_TO_UPLOAD' | translate"
+        [previewUrl]="registrationState.draft$().licenseBack?.dataUrl ?? ''"
+        (fileSelected)="onFileSelected($event)"
+      ></app-document-upload>
+
+      <app-document-upload
+        documentType="insurance"
+        [label]="'DRIVER.DOCUMENTS.INSURANCE' | translate"
+        [hint]="'DRIVER.DOCUMENTS.OPTIONAL' | translate"
+        [previewUrl]="registrationState.draft$().insuranceDocument?.dataUrl ?? ''"
+        (fileSelected)="onFileSelected($event)"
+      ></app-document-upload>
+    </div>
+
+    @if (!registrationState.areDocumentsComplete()) {
+      <ion-text color="medium" class="documents-hint">
+        {{ 'DRIVER.DOCUMENTS.REQUIRED_HINT' | translate }}
+      </ion-text>
+    }
+
+    <app-button
+      [disabled]="!registrationState.areDocumentsComplete()"
+      (buttonClick)="continue()"
+    >
+      {{ 'COMMON.CONTINUE' | translate }}
+    </app-button>
+  </div>
+</ion-content>
