@@ -3,6 +3,7 @@
   --login-pad-x: 3.87%;
   --login-content-w: 89.33%;
   --login-header-top: 5%;
+  --login-logo-size: 24.27%;
   --login-field-gap: 4.93%;
   --login-title-size: 162.5%;
   --login-title-lh: 158%;
@@ -23,6 +24,15 @@
     margin: 0 auto;
     padding: var(--login-header-top) var(--login-pad-x) 5%;
     box-sizing: border-box;
+  }
+
+  &__logo {
+    width: var(--login-logo-size);
+    max-width: 91px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin-bottom: 2.46%;
   }
 
   &__header-row {
