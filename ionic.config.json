@@ -1,0 +1,7 @@
+{
+  "name": "kilis-kalas-pro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
