@@ -1,0 +1,63 @@
+<ion-content [fullscreen]="true" class="registration-photo-step insurance-photo">
+  <input
+    #fileInput
+    type="file"
+    class="registration-photo-step__file-input"
+    accept="image/*"
+    capture="environment"
+    (change)="onFileSelected($event)"
+  />
+
+  <div class="registration-photo-step__shell">
+    <div class="registration-photo-step__main">
+      <div class="registration-photo-step__nav">
+        <app-back-button defaultHref="/driver-registration/vehicle-info"></app-back-button>
+      </div>
+
+      <h1 class="registration-photo-step__title">{{ 'DRIVER.INSURANCE_PHOTO.TITLE' | translate }}</h1>
+
+      <div class="registration-photo-step__progress">
+        <app-registration-progress
+          [totalSteps]="totalSteps"
+          [currentStep]="registrationStep"
+        ></app-registration-progress>
+      </div>
+
+      <div class="registration-photo-step__preview">
+        @if (photoUrl) {
+          <img [src]="photoUrl" alt="" class="registration-photo-step__document-image" />
+        } @else {
+          <div class="registration-photo-step__document-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 80 52" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="72" height="44" rx="6" stroke="currentColor" stroke-width="3" />
+              <path d="M14 16h52M14 24h40M14 32h46" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              <circle cx="24" cy="40" r="5" stroke="currentColor" stroke-width="3" />
+              <path d="M32 40h34" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+        }
+      </div>
+
+      <p class="registration-photo-step__instructions">
+        {{ 'DRIVER.INSURANCE_PHOTO.INSTRUCTIONS' | translate }}
+      </p>
+    </div>
+
+    <div class="registration-photo-step__footer">
+      @if (hasPhoto) {
+        <div class="registration-photo-step__dual-actions">
+          <app-pill-button variant="outline" expand="block" (buttonClick)="takePhoto()">
+            {{ 'DRIVER.INSURANCE_PHOTO.TAKE_PHOTO' | translate }}
+          </app-pill-button>
+          <app-pill-button expand="block" (buttonClick)="continue()">
+            {{ 'DRIVER.INSURANCE_PHOTO.SUBMIT' | translate }}
+          </app-pill-button>
+        </div>
+      } @else {
+        <app-pill-button expand="block" (buttonClick)="takePhoto()">
+          {{ 'DRIVER.INSURANCE_PHOTO.TAKE_PHOTO' | translate }}
+        </app-pill-button>
+      }
+    </div>
+  </div>
+</ion-content>

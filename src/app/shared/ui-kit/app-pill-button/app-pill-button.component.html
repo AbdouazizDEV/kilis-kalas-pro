@@ -1,5 +1,6 @@
 <ion-button
   class="app-pill-button"
+  [class.app-pill-button--outline]="variant === 'outline'"
   type="button"
   [expand]="expand"
   [disabled]="disabled || loading"

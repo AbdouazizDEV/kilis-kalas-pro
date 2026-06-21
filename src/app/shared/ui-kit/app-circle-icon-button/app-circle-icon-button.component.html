@@ -1,0 +1,16 @@
+<ion-button
+  class="circle-icon-button"
+  [class.circle-icon-button--dark]="dark"
+  [class.circle-icon-button--outlined]="outlined"
+  [class.circle-icon-button--green]="variant === 'green'"
+  fill="clear"
+  shape="round"
+  [attr.aria-label]="ariaLabel"
+  (click)="onClick($event)"
+>
+  @if (imageSrc) {
+    <ion-img [src]="imageSrc" slot="icon-only" class="circle-icon-button__img"></ion-img>
+  } @else {
+    <ion-icon [name]="icon" slot="icon-only"></ion-icon>
+  }
+</ion-button>

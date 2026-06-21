@@ -1,31 +1,62 @@
-<ion-content [fullscreen]="true">
-  <div class="page-container profile-photo-page">
-    <app-back-button></app-back-button>
-    <h1 class="page-title">{{ 'DRIVER.PROFILE_PHOTO.TITLE' | translate }}</h1>
-    <p class="page-subtitle">{{ 'DRIVER.PROFILE_PHOTO.SUBTITLE' | translate }}</p>
+<ion-content [fullscreen]="true" class="registration-photo-step profile-photo">
+  <input
+    #fileInput
+    type="file"
+    class="registration-photo-step__file-input"
+    accept="image/*"
+    capture="user"
+    (change)="onFileSelected($event)"
+  />
 
-    <div class="profile-photo-page__preview">
-      <app-avatar
-        size="lg"
-        [src]="registrationState.draft$().profilePhoto?.dataUrl ?? ''"
-        [alt]="registrationState.draft$().firstName"
-      ></app-avatar>
+  <div class="registration-photo-step__shell">
+    <div class="registration-photo-step__main">
+      <div class="registration-photo-step__nav">
+        <app-back-button defaultHref="/driver-registration/transport-mode"></app-back-button>
+      </div>
+
+      <h1 class="registration-photo-step__title">{{ 'DRIVER.PROFILE_PHOTO.TITLE' | translate }}</h1>
+
+      <div class="registration-photo-step__progress">
+        <app-registration-progress
+          [totalSteps]="totalSteps"
+          [currentStep]="registrationStep"
+        ></app-registration-progress>
+      </div>
+
+      <div class="registration-photo-step__preview">
+        @if (photoUrl) {
+          <img [src]="photoUrl" alt="" class="registration-photo-step__preview-image" />
+        } @else {
+          <div class="registration-photo-step__profile-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              />
+            </svg>
+          </div>
+        }
+      </div>
+
+      <p class="registration-photo-step__instructions">
+        {{ 'DRIVER.PROFILE_PHOTO.INSTRUCTIONS' | translate }}
+      </p>
     </div>
 
-    <app-document-upload
-      documentType="profile_photo"
-      [label]="'DRIVER.PROFILE_PHOTO.UPLOAD' | translate"
-      [hint]="'DRIVER.PROFILE_PHOTO.HINT' | translate"
-      [previewUrl]="registrationState.draft$().profilePhoto?.dataUrl ?? ''"
-      (fileSelected)="onFileSelected($event)"
-    ></app-document-upload>
-
-    <app-button
-      class="profile-photo-page__cta"
-      [disabled]="!registrationState.isProfilePhotoComplete()"
-      (buttonClick)="continue()"
-    >
-      {{ 'COMMON.CONTINUE' | translate }}
-    </app-button>
+    <div class="registration-photo-step__footer">
+      @if (hasPhoto) {
+        <div class="registration-photo-step__dual-actions">
+          <app-pill-button variant="outline" expand="block" (buttonClick)="takePhoto()">
+            {{ 'DRIVER.PROFILE_PHOTO.TAKE_PHOTO' | translate }}
+          </app-pill-button>
+          <app-pill-button expand="block" (buttonClick)="continue()">
+            {{ 'DRIVER.PROFILE_PHOTO.SUBMIT' | translate }}
+          </app-pill-button>
+        </div>
+      } @else {
+        <app-pill-button expand="block" (buttonClick)="takePhoto()">
+          {{ 'DRIVER.PROFILE_PHOTO.TAKE_PHOTO' | translate }}
+        </app-pill-button>
+      }
+    </div>
   </div>
 </ion-content>

@@ -1,0 +1,93 @@
+.driver-home-menu {
+  --width: 100%;
+  --max-width: 375px;
+}
+
+.driver-home {
+  --background: transparent;
+
+  &__map {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__overlay {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &__top-actions,
+  &__go-wrap,
+  &__search-wrap,
+  &__locate-wrap,
+  &__bottom-panel,
+  &__countdown {
+    pointer-events: auto;
+  }
+
+  &__top-actions {
+    position: absolute;
+    top: calc(9.73% + env(safe-area-inset-top, 0px));
+    left: 20px;
+    width: auto;
+  }
+
+  &__countdown {
+    position: absolute;
+    top: calc(9.73% + env(safe-area-inset-top, 0px));
+    right: 20px;
+    width: auto;
+  }
+
+  &__countdown-text {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid #ea4335;
+    border-radius: 6px;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+    color: #ea4335;
+  }
+
+  &__go-wrap {
+    position: absolute;
+    left: 50%;
+    bottom: calc(152px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    width: auto;
+  }
+
+  &__search-wrap {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: calc(152px + env(safe-area-inset-bottom, 0px));
+    width: auto;
+  }
+
+  &__locate-wrap {
+    position: absolute;
+    right: 20px;
+    bottom: calc(118px + env(safe-area-inset-bottom, 0px));
+    width: auto;
+  }
+
+  &__bottom-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+
+    &--expanded {
+      max-height: 72vh;
+    }
+  }
+}

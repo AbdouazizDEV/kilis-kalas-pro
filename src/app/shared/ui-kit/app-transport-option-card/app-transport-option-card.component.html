@@ -1,0 +1,30 @@
+<ion-button
+  type="button"
+  fill="clear"
+  expand="block"
+  class="transport-option-card"
+  [class.transport-option-card--selected]="selected"
+  (click)="onSelect()"
+>
+  <ion-grid class="transport-option-card__grid">
+    <ion-row class="ion-align-items-center ion-justify-content-between transport-option-card__row">
+      <ion-col size="auto" class="transport-option-card__icon-col">
+        <ion-img
+          [src]="iconSrc"
+          alt=""
+          class="transport-option-card__icon"
+          [class.transport-option-card__icon--flip]="flipIcon"
+        ></ion-img>
+      </ion-col>
+
+      <ion-col size="auto" class="transport-option-card__label-col">
+        <ion-text class="transport-option-card__label">{{ labelKey | translate }}</ion-text>
+      </ion-col>
+
+      <ion-col size="auto" class="transport-option-card__brand-col">
+        <ion-text class="transport-option-card__brand-line">{{ brandLine1Key | translate }}</ion-text>
+        <ion-text class="transport-option-card__brand-line">{{ brandLine2Key | translate }}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-button>

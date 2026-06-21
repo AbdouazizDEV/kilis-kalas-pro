@@ -1,0 +1,112 @@
+<ion-grid class="ride-detail-sheet" [class.ride-detail-sheet--embedded]="!showHandle">
+  @if (showHandle) {
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="ride-detail-sheet__handle-col">
+        <ion-text class="ride-detail-sheet__handle"></ion-text>
+      </ion-col>
+    </ion-row>
+  }
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="ion-text-center">
+      <ion-text class="ride-detail-sheet__title">{{ titleKey | translate }}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-detail-sheet__route ion-align-items-center">
+    <ion-col size="auto" class="ride-detail-sheet__route-icons">
+      <ion-text class="ride-detail-sheet__dot ride-detail-sheet__dot--pickup"></ion-text>
+      <ion-text class="ride-detail-sheet__line"></ion-text>
+      <ion-icon name="location-outline" class="ride-detail-sheet__pin"></ion-icon>
+    </ion-col>
+    <ion-col class="ride-detail-sheet__route-text">
+      <ion-text class="ride-detail-sheet__address">
+        {{ 'DRIVER.HOME.DEPARTURE' | translate }} : {{ ride.pickupAddress }}
+      </ion-text>
+      <ion-text class="ride-detail-sheet__address">
+        {{ 'DRIVER.HOME.ARRIVAL' | translate }} : {{ ride.dropoffAddress }}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-detail-sheet__summary ion-align-items-center">
+    <ion-col size="auto">
+      <ion-img [src]="serviceIconSrc" class="ride-detail-sheet__service-icon"></ion-img>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <ion-text class="ride-detail-sheet__fare">{{ formattedFare }}</ion-text>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-text class="ride-detail-sheet__service">{{ serviceLabelKey | translate }}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-detail-sheet__detail">
+    <ion-col size="12">
+      <ion-grid class="ride-detail-sheet__detail-grid">
+        <ion-row>
+          <ion-col size="6"><ion-text class="ride-detail-sheet__label">{{ 'DRIVER.HOME.FARE_LABEL' | translate }}</ion-text></ion-col>
+          <ion-col size="6" class="ion-text-end"><ion-text class="ride-detail-sheet__value">{{ formattedFare }}</ion-text></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6"><ion-text class="ride-detail-sheet__label">{{ 'DRIVER.HOME.PAYMENT_LABEL' | translate }}</ion-text></ion-col>
+          <ion-col size="6" class="ion-text-end"><ion-text class="ride-detail-sheet__value">{{ ride.paymentMethod ?? '—' }}</ion-text></ion-col>
+        </ion-row>
+        @if (ride.packageDescription) {
+          <ion-row>
+            <ion-col size="6"><ion-text class="ride-detail-sheet__label">{{ 'DRIVER.HOME.PACKAGE_LABEL' | translate }}</ion-text></ion-col>
+            <ion-col size="6" class="ion-text-end"><ion-text class="ride-detail-sheet__value">{{ ride.packageDescription }}</ion-text></ion-col>
+          </ion-row>
+        }
+        @if (ride.recipientName) {
+          <ion-row>
+            <ion-col size="6"><ion-text class="ride-detail-sheet__label">{{ 'DRIVER.HOME.RECIPIENT_LABEL' | translate }}</ion-text></ion-col>
+            <ion-col size="6" class="ion-text-end"><ion-text class="ride-detail-sheet__value">{{ ride.recipientName }}</ion-text></ion-col>
+          </ion-row>
+        }
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-detail-sheet__requester ion-align-items-center">
+    <ion-col size="auto">
+      <ion-avatar class="ride-detail-sheet__avatar">
+        @if (requesterPhotoUrl) {
+          <ion-img [src]="requesterPhotoUrl" [alt]="requesterName"></ion-img>
+        } @else {
+          <ion-icon name="person"></ion-icon>
+        }
+      </ion-avatar>
+    </ion-col>
+    <ion-col>
+      <ion-text class="ride-detail-sheet__requester-label">{{ 'DRIVER.HOME.REQUESTER_LABEL' | translate }}</ion-text>
+      <ion-text class="ride-detail-sheet__requester-name">{{ requesterName }}</ion-text>
+    </ion-col>
+    <ion-col size="auto" class="ride-detail-sheet__contact">
+      <ion-button class="ride-detail-sheet__contact-btn" fill="clear" shape="round" (click)="messageClick.emit()">
+        <ion-icon name="chatbubble-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button class="ride-detail-sheet__contact-btn" fill="clear" shape="round" (click)="callClick.emit()">
+        <ion-icon name="call-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  @if (showCancelAction) {
+    <ion-row>
+      <ion-col size="12">
+        <ion-button class="ride-detail-sheet__cancel" expand="block" fill="clear" (click)="cancelClick.emit()">
+          <ion-label>{{ 'DRIVER.HOME.CANCEL_RIDE' | translate }}</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  }
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-button class="ride-detail-sheet__primary" expand="block" fill="clear" (click)="primaryClick.emit()">
+        <ion-label>{{ primaryActionKey | translate }}</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

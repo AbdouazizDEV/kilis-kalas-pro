@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonButton, IonSpinner } from '@ionic/angular/standalone';
 
+export type AppPillButtonVariant = 'solid' | 'outline';
+
 @Component({
   selector: 'app-pill-button',
   standalone: true,
@@ -11,6 +13,8 @@ import { IonButton, IonSpinner } from '@ionic/angular/standalone';
 })
 export class AppPillButtonComponent {
   private readonly router = inject(Router);
+
+  @Input() variant: AppPillButtonVariant = 'solid';
 
   @Input() disabled = false;
   @Input() loading = false;
@@ -27,10 +31,7 @@ export class AppPillButtonComponent {
       return;
     }
 
-    if (this.buttonClick.observed) {
-      this.buttonClick.emit();
-      return;
-    }
+    this.buttonClick.emit();
 
     if (this.routerLink) {
       void this.router.navigateByUrl(this.resolveRoute(this.routerLink));

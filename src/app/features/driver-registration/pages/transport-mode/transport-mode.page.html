@@ -1,28 +1,40 @@
-<ion-content [fullscreen]="true">
-  <div class="page-container">
-    <app-back-button></app-back-button>
-    <h1 class="page-title">{{ 'DRIVER.TRANSPORT.TITLE' | translate }}</h1>
-    <p class="page-subtitle">{{ 'DRIVER.TRANSPORT.SUBTITLE' | translate }}</p>
+<ion-content [fullscreen]="true" class="transport-mode">
+  <ion-grid class="transport-mode__layout">
+    <ion-row class="transport-mode__nav-row">
+      <ion-col size="12" class="transport-mode__nav-col">
+        <app-back-button defaultHref="/auth/register"></app-back-button>
+      </ion-col>
+    </ion-row>
 
-    <div class="transport-options">
-      @for (option of options; track option.mode) {
-        <button
-          type="button"
-          class="transport-option"
-          [class.transport-option--selected]="selectedMode === option.mode"
-          (click)="selectMode(option.mode)"
-        >
-          <ion-icon [name]="option.icon" class="transport-option__icon"></ion-icon>
-          <div class="transport-option__text">
-            <ion-text class="transport-option__label">{{ option.labelKey | translate }}</ion-text>
-            <ion-text class="transport-option__desc">{{ option.descriptionKey | translate }}</ion-text>
-          </div>
-        </button>
-      }
-    </div>
+    <ion-row class="transport-mode__header-row">
+      <ion-col size="12" class="transport-mode__header-col ion-text-center">
+        <ion-text class="transport-mode__title">{{ 'DRIVER.TRANSPORT.TITLE' | translate }}</ion-text>
+      </ion-col>
+    </ion-row>
 
-    <app-button [disabled]="!selectedMode" (buttonClick)="continue()">
-      {{ 'COMMON.CONTINUE' | translate }}
-    </app-button>
-  </div>
+    <ion-row class="transport-mode__options-row">
+      <ion-col size="12" class="transport-mode__options-col">
+        @for (option of options; track option.mode) {
+          <app-transport-option-card
+            [mode]="option.mode"
+            [iconSrc]="option.iconSrc"
+            [labelKey]="option.labelKey"
+            [brandLine1Key]="option.brandLine1Key"
+            [brandLine2Key]="option.brandLine2Key"
+            [flipIcon]="option.flipIcon ?? false"
+            [selected]="selectedMode === option.mode"
+            (selectedChange)="selectMode($event)"
+          ></app-transport-option-card>
+        }
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="transport-mode__submit-row">
+      <ion-col size="12" class="transport-mode__submit-col">
+        <app-pill-button [disabled]="!selectedMode" (buttonClick)="continue()">
+          {{ 'DRIVER.TRANSPORT.SUBMIT' | translate }}
+        </app-pill-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

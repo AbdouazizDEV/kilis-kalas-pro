@@ -1,0 +1,36 @@
+<div class="color-palette" [class.color-palette--disabled]="disabled">
+  @if (label) {
+    <p class="color-palette__label">{{ label }}</p>
+  }
+
+  <div class="color-palette__grid" role="listbox" [attr.aria-label]="label">
+    @for (color of colors; track color.id) {
+      <button
+        type="button"
+        class="color-palette__swatch"
+        [class.color-palette__swatch--selected]="isSelected(color.id)"
+        [class.color-palette__swatch--light]="isLight(color.hex)"
+        [style.--swatch-color]="color.hex"
+        [attr.aria-selected]="isSelected(color.id)"
+        [attr.aria-label]="color.label"
+        [disabled]="disabled"
+        (click)="selectColor(color.id)"
+      >
+        <span class="color-palette__dot"></span>
+        @if (isSelected(color.id)) {
+          <span class="color-palette__check" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3.5 8.2L6.4 11.1L12.5 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        }
+      </button>
+    }
+  </div>
+</div>

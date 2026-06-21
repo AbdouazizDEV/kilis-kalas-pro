@@ -1,0 +1,121 @@
+.driver-menu {
+  --background: #f9f9f9;
+
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  &__toolbar {
+    --background: transparent;
+    --border-width: 0;
+    --padding-top: 9.73%;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --min-height: 88px;
+  }
+
+  &__back {
+    --padding-start: 0;
+    --padding-end: 0;
+    margin: 0;
+    height: auto;
+  }
+
+  &__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 114px 20px 24px;
+    background: linear-gradient(180deg, #10b981 0%, #10b981 209px, #f9f9f9 209px);
+    border-radius: 0 0 23px 23px;
+  }
+
+  &__avatar {
+    width: 147px;
+    height: 147px;
+    border: 4px solid #e5eff4;
+    background: #e5eff4;
+
+    ion-img,
+    .driver-menu__avatar-fallback {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__avatar-fallback {
+    font-size: 72px;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  &__name {
+    display: block;
+    margin-top: 18px;
+    font-family: var(--kk-font-body);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 160%;
+    color: #000000;
+    text-align: center;
+  }
+
+  &__list {
+    margin: 24px 18px 0;
+    padding: 15px 18px;
+    background: #fdfefe;
+    border-radius: 17px;
+  }
+
+  &__item {
+    --background: transparent;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --min-height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+    margin-bottom: 10px;
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-icon {
+    margin-right: 13px;
+    font-size: 30px;
+    color: #10b981;
+  }
+
+  ion-label {
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  &__logout {
+    --background: #dc2626;
+    --background-hover: #c81e1e;
+    --background-activated: #b91c1c;
+    --border-radius: 17px;
+    --color: #fdfefe;
+    --box-shadow: none;
+    height: 50px;
+    margin: 24px 18px calc(24px + env(safe-area-inset-bottom, 0px));
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 24px;
+
+    ion-icon {
+      font-size: 24px;
+      margin-right: 13px;
+    }
+  }
+}

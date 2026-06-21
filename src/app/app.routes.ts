@@ -29,6 +29,11 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'driver',
+    loadChildren: () =>
+      import('./features/home-map/home-map.routes').then((m) => m.HOME_MAP_ROUTES),
+  },
+  {
     path: 'verification-pending',
     loadComponent: () =>
       import('./features/verification-pending/pages/pending/pending.page').then(

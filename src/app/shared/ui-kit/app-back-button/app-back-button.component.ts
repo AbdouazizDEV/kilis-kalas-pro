@@ -1,24 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { Location } from '@angular/common';
-import { IonButton, IonIcon } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { arrowBackOutline } from 'ionicons/icons';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { IonButton, IonImg } from '@ionic/angular/standalone';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-back-button',
   standalone: true,
-  imports: [IonButton, IonIcon],
+  imports: [IonButton, IonImg, TranslatePipe],
   templateUrl: './app-back-button.component.html',
   styleUrls: ['./app-back-button.component.scss'],
 })
 export class AppBackButtonComponent {
-  @Input() defaultHref = '';
+  private readonly router = inject(Router);
 
-  constructor(private readonly location: Location) {
-    addIcons({ arrowBackOutline });
-  }
+  @Input() defaultHref = '/auth/login';
+  @Output() backClick = new EventEmitter<void>();
 
-  goBack(): void {
-    this.location.back();
+  onBack(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.backClick.emit();
+    void this.router.navigateByUrl(this.defaultHref);
   }
 }

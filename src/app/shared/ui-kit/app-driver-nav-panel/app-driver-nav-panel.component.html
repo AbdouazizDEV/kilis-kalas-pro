@@ -1,0 +1,35 @@
+<ion-grid class="driver-nav-panel">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="driver-nav-panel__handle-col">
+      <ion-text class="driver-nav-panel__handle"></ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center driver-nav-panel__actions">
+    <ion-col size="auto">
+      <app-circle-icon-button
+        icon="menu-outline"
+        [outlined]="true"
+        [ariaLabel]="'DRIVER.HOME.OPEN_MENU' | translate"
+        (buttonClick)="menuClick.emit()"
+      ></app-circle-icon-button>
+    </ion-col>
+
+    <ion-col class="driver-nav-panel__km-col">
+      <ion-button class="driver-nav-panel__km" fill="clear" expand="block">
+        <ion-label>
+          {{ remainingKm | number: '1.1-1' }}km {{ 'DRIVER.HOME.REMAINING' | translate }}
+        </ion-label>
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="auto">
+      <app-circle-icon-button
+        [imageSrc]="arriveIconSrc"
+        variant="green"
+        [ariaLabel]="'DRIVER.HOME.ARRIVE' | translate"
+        (buttonClick)="arriveClick.emit()"
+      ></app-circle-icon-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

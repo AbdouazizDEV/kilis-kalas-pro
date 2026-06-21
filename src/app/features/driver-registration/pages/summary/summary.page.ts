@@ -38,7 +38,7 @@ export class SummaryPage {
 
   transportLabelKey(): string {
     const mode = this.draft().transportMode;
-    const map: Record<string, string> = { moto: 'MOTO', taxi: 'TAXI', clando: 'CLANDO' };
+    const map: Record<string, string> = { moto: 'MOTO', taxi: 'VOITURE' };
     return mode ? `DRIVER.TRANSPORT.${map[mode]}` : '';
   }
 

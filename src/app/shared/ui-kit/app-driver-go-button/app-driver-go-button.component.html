@@ -1,0 +1,11 @@
+<ion-button
+  class="driver-go-button"
+  fill="clear"
+  shape="round"
+  [disabled]="disabled"
+  (click)="onClick($event)"
+>
+  <ion-text class="driver-go-button__inner">
+    <ion-label>{{ label }}</ion-label>
+  </ion-text>
+</ion-button>

@@ -1,19 +1,20 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonContent, IonIcon, IonText } from '@ionic/angular/standalone';
+import { IonCol, IonContent, IonGrid, IonRow, IonText } from '@ionic/angular/standalone';
 import { TranslatePipe } from '@ngx-translate/core';
-import { addIcons } from 'ionicons';
-import { bicycleOutline, carOutline, busOutline } from 'ionicons/icons';
 import { AppBackButtonComponent } from '../../../../shared/ui-kit/app-back-button/app-back-button.component';
-import { AppButtonComponent } from '../../../../shared/ui-kit/app-button/app-button.component';
+import { AppPillButtonComponent } from '../../../../shared/ui-kit/app-pill-button/app-pill-button.component';
+import { AppTransportOptionCardComponent } from '../../../../shared/ui-kit/app-transport-option-card/app-transport-option-card.component';
 import { TransportMode } from '../../../../models/vehicle.model';
 import { DriverRegistrationStateService } from '../../services/driver-registration-state.service';
 
-interface TransportOption {
+interface TransportOptionConfig {
   mode: TransportMode;
-  icon: string;
+  iconSrc: string;
   labelKey: string;
-  descriptionKey: string;
+  brandLine1Key: string;
+  brandLine2Key: string;
+  flipIcon?: boolean;
 }
 
 @Component({
@@ -21,29 +22,46 @@ interface TransportOption {
   standalone: true,
   imports: [
     IonContent,
-    IonIcon,
+    IonGrid,
+    IonRow,
+    IonCol,
     IonText,
     TranslatePipe,
     AppBackButtonComponent,
-    AppButtonComponent,
+    AppPillButtonComponent,
+    AppTransportOptionCardComponent,
   ],
   templateUrl: './transport-mode.page.html',
   styleUrls: ['./transport-mode.page.scss'],
 })
-export class TransportModePage {
+export class TransportModePage implements OnInit {
   private readonly router = inject(Router);
   private readonly registrationState = inject(DriverRegistrationStateService);
 
-  readonly options: TransportOption[] = [
-    { mode: 'moto', icon: 'bicycle-outline', labelKey: 'DRIVER.TRANSPORT.MOTO', descriptionKey: 'DRIVER.TRANSPORT.MOTO_DESC' },
-    { mode: 'taxi', icon: 'car-outline', labelKey: 'DRIVER.TRANSPORT.TAXI', descriptionKey: 'DRIVER.TRANSPORT.TAXI_DESC' },
-    { mode: 'clando', icon: 'bus-outline', labelKey: 'DRIVER.TRANSPORT.CLANDO', descriptionKey: 'DRIVER.TRANSPORT.CLANDO_DESC' },
+  readonly options: TransportOptionConfig[] = [
+    {
+      mode: 'moto',
+      iconSrc: 'assets/icon/Motorcycle.png',
+      labelKey: 'DRIVER.TRANSPORT.MOTO',
+      brandLine1Key: 'DRIVER.TRANSPORT.MOTO_BRAND_LINE1',
+      brandLine2Key: 'DRIVER.TRANSPORT.MOTO_BRAND_LINE2',
+    },
+    {
+      mode: 'taxi',
+      iconSrc: 'assets/icon/Vehicle.png',
+      labelKey: 'DRIVER.TRANSPORT.VOITURE',
+      brandLine1Key: 'DRIVER.TRANSPORT.VOITURE_BRAND_LINE1',
+      brandLine2Key: 'DRIVER.TRANSPORT.VOITURE_BRAND_LINE2',
+      flipIcon: true,
+    },
   ];
 
   selectedMode: TransportMode | null = this.registrationState.draft$().transportMode;
 
-  constructor() {
-    addIcons({ bicycleOutline, carOutline, busOutline });
+  ngOnInit(): void {
+    if (!this.selectedMode) {
+      this.selectMode('moto');
+    }
   }
 
   selectMode(mode: TransportMode): void {
@@ -55,6 +73,6 @@ export class TransportModePage {
     if (!this.selectedMode) {
       return;
     }
-    this.router.navigate(['/driver-registration/documents']);
+    this.router.navigate(['/driver-registration/profile-photo']);
   }
 }

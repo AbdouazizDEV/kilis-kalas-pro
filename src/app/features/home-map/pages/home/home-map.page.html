@@ -1,0 +1,150 @@
+<ion-menu
+  [menuId]="menuId"
+  [contentId]="contentId"
+  side="end"
+  type="overlay"
+  class="driver-home-menu"
+>
+  <app-driver-menu
+    [fullName]="fullName"
+    [photoUrl]="photoUrl"
+    [menuItems]="menuItems"
+    (backClick)="closeMenu()"
+    (menuItemClick)="onMenuItemClick($event)"
+    (logoutClick)="onLogout()"
+  ></app-driver-menu>
+</ion-menu>
+
+<ion-content [id]="contentId" [fullscreen]="true" class="driver-home">
+  <app-map-view
+    class="driver-home__map"
+    [center]="mapCenter()"
+    [zoom]="15"
+    [routePoints]="routePoints()"
+    [routeDashed]="routeDashed()"
+    [destination]="routeDestination()"
+  ></app-map-view>
+
+  <ion-grid class="driver-home__overlay">
+    @if (!isNavigating()) {
+      <ion-row class="driver-home__top-actions">
+        <ion-col size="auto">
+          <app-circle-icon-button
+            icon="menu-outline"
+            [ariaLabel]="'DRIVER.HOME.OPEN_MENU' | translate"
+            (buttonClick)="openMenu()"
+          ></app-circle-icon-button>
+        </ion-col>
+      </ion-row>
+    }
+
+    @if (phase() === 'offer') {
+      <ion-row class="driver-home__countdown">
+        <ion-col size="auto">
+          <ion-text class="driver-home__countdown-text">{{ offerCountdown() }}</ion-text>
+        </ion-col>
+      </ion-row>
+    }
+
+    @if (phase() === 'offline') {
+      <ion-row class="driver-home__go-wrap">
+        <ion-col size="12" class="ion-text-center">
+          <app-driver-go-button (goClick)="goOnline()"></app-driver-go-button>
+        </ion-col>
+      </ion-row>
+    }
+
+    @if (phase() === 'searching') {
+      <ion-row class="driver-home__search-wrap">
+        <ion-col size="12">
+          <app-driver-search-overlay
+            (stopClick)="stopSearch()"
+            (locateClick)="recenterMap()"
+          ></app-driver-search-overlay>
+        </ion-col>
+      </ion-row>
+    }
+
+    @if (phase() !== 'searching' && !isNavigating()) {
+      <ion-row class="driver-home__locate-wrap">
+        <ion-col size="auto">
+          <app-circle-icon-button
+            icon="locate-outline"
+            [ariaLabel]="'DRIVER.HOME.RECENTER' | translate"
+            (buttonClick)="recenterMap()"
+          ></app-circle-icon-button>
+        </ion-col>
+      </ion-row>
+    }
+
+    @if (phase() === 'offer' && currentRide(); as ride) {
+      <ion-row class="driver-home__bottom-panel">
+        <ion-col size="12">
+          <app-ride-offer-sheet
+            [ride]="ride"
+            [serviceIconSrc]="serviceIconSrc"
+            [serviceLabelKey]="serviceLabelKey"
+            (acceptClick)="onAcceptRide()"
+            (refuseClick)="onRefuseRide()"
+          ></app-ride-offer-sheet>
+        </ion-col>
+      </ion-row>
+    } @else if (showCollapsibleDetail() && currentRide(); as ride) {
+      <ion-row class="driver-home__bottom-panel driver-home__bottom-panel--expanded">
+        <ion-col size="12">
+          <app-collapsible-bottom-sheet
+            [collapsed]="sheetCollapsed()"
+            (collapsedChange)="onSheetCollapsedChange($event)"
+          >
+            <app-ride-detail-sheet
+              [ride]="ride"
+              [mode]="detailMode"
+              [showHandle]="false"
+              [serviceIconSrc]="serviceIconSrc"
+              [serviceLabelKey]="serviceLabelKey"
+              [requesterPhotoUrl]="requesterPhotoUrl"
+              (primaryClick)="onDetailPrimaryAction()"
+              (cancelClick)="onCancelRide()"
+              (messageClick)="onMessageRequester()"
+              (callClick)="onCallRequester()"
+            ></app-ride-detail-sheet>
+          </app-collapsible-bottom-sheet>
+        </ion-col>
+      </ion-row>
+    } @else if (isNavigating()) {
+      <ion-row class="driver-home__bottom-panel">
+        <ion-col size="12">
+          <app-driver-nav-panel
+            [remainingKm]="remainingKm()"
+            (menuClick)="openMenu()"
+            (arriveClick)="onArriveClick()"
+          ></app-driver-nav-panel>
+        </ion-col>
+      </ion-row>
+    } @else if (phase() === 'completed' && currentRide(); as ride) {
+      <ion-row class="driver-home__bottom-panel driver-home__bottom-panel--expanded">
+        <ion-col size="12">
+          <app-ride-completed-sheet
+            [ride]="ride"
+            [driverName]="fullName"
+            [vehicleLabel]="vehicleLabel"
+            [requesterPhotoUrl]="requesterPhotoUrl"
+            [completedAt]="completedAt()"
+            (viewDetailsClick)="onViewCompletedDetails()"
+            (finishClick)="onFinishCompleted()"
+          ></app-ride-completed-sheet>
+        </ion-col>
+      </ion-row>
+    } @else {
+      <ion-row class="driver-home__bottom-panel">
+        <ion-col size="12">
+          <app-driver-bottom-panel
+            [online]="phase() !== 'offline'"
+            (statusClick)="toggleAvailability()"
+            (statsClick)="onStatsClick()"
+          ></app-driver-bottom-panel>
+        </ion-col>
+      </ion-row>
+    }
+  </ion-grid>
+</ion-content>

@@ -12,6 +12,28 @@ export const DRIVER_REGISTRATION_ROUTES: Routes = [
       import('./pages/transport-mode/transport-mode.page').then((m) => m.TransportModePage),
   },
   {
+    path: 'national-id-photo',
+    loadComponent: () =>
+      import('./pages/national-id-photo/national-id-photo.page').then((m) => m.NationalIdPhotoPage),
+  },
+  {
+    path: 'license-photo',
+    loadComponent: () =>
+      import('./pages/license-photo/license-photo.page').then((m) => m.LicensePhotoPage),
+  },
+  {
+    path: 'insurance-photo',
+    loadComponent: () =>
+      import('./pages/insurance-photo/insurance-photo.page').then((m) => m.InsurancePhotoPage),
+  },
+  {
+    path: 'registration-complete',
+    loadComponent: () =>
+      import('./pages/registration-complete/registration-complete.page').then(
+        (m) => m.RegistrationCompletePage,
+      ),
+  },
+  {
     path: 'documents',
     loadComponent: () => import('./pages/documents/documents.page').then((m) => m.DocumentsPage),
   },

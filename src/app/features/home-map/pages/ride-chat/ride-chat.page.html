@@ -1,0 +1,51 @@
+<ion-header class="ride-chat-header ion-no-border">
+  <ion-toolbar>
+    <ion-grid class="ride-chat-header__grid">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <app-circle-icon-button
+            icon="arrow-back-outline"
+            [outlined]="true"
+            [ariaLabel]="'COMMON.BACK' | translate"
+            (buttonClick)="goBack()"
+          ></app-circle-icon-button>
+        </ion-col>
+        <ion-col class="ride-chat-header__info">
+          <ion-text class="ride-chat-header__name">{{ contactName() }}</ion-text>
+          <ion-text class="ride-chat-header__status">{{ 'DRIVER.CHAT.ONLINE' | translate }}</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button class="ride-chat-header__call" fill="clear" shape="round" (click)="callContact()">
+            <ion-icon name="call-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ride-chat">
+  <ion-grid class="ride-chat__messages">
+    <ion-row class="ion-justify-content-center ride-chat__date-row">
+      <ion-col size="auto">
+        <ion-text class="ride-chat__date-chip">{{ 'DRIVER.CHAT.TODAY' | translate }}</ion-text>
+      </ion-col>
+    </ion-row>
+
+    @for (message of messages(); track message.id) {
+      <app-chat-message-item [message]="message"></app-chat-message-item>
+    }
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="ride-chat-footer ion-no-border">
+  <ion-toolbar>
+    <app-chat-composer
+      [draft]="draft()"
+      (draftChange)="onDraftChange($event)"
+      (sendText)="onSendText($event)"
+      (sendImage)="onSendImage($event)"
+      (sendAudio)="onSendAudio($event)"
+    ></app-chat-composer>
+  </ion-toolbar>
+</ion-footer>

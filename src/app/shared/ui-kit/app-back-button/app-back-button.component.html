@@ -1,3 +1,9 @@
-<ion-button fill="clear" class="app-back-button" (click)="goBack()">
-  <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+<ion-button
+  type="button"
+  fill="clear"
+  class="app-back-button"
+  [attr.aria-label]="'COMMON.BACK' | translate"
+  (click)="onBack($event)"
+>
+  <ion-img src="assets/icon/flesh.svg" alt="" class="app-back-button__icon"></ion-img>
 </ion-button>

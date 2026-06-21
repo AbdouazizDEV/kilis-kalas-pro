@@ -1,0 +1,67 @@
+<ion-row [class.chat-message-item]="true" [class.chat-message-item--sent]="message.sent">
+  <ion-col
+    size="10"
+    [offset]="message.sent ? '2' : '0'"
+    class="chat-message-item__col"
+  >
+    @switch (message.type) {
+      @case ('image') {
+        <ion-text
+          class="chat-message-item__bubble chat-message-item__bubble--image"
+          [class.chat-message-item__bubble--sent]="message.sent"
+          [class.chat-message-item__bubble--received]="!message.sent"
+        >
+          <ion-img [src]="message.imageUrl" [alt]="message.text ?? 'Photo'"></ion-img>
+        </ion-text>
+      }
+      @case ('audio') {
+        <ion-text
+          class="chat-message-item__bubble chat-message-item__bubble--audio"
+          [class.chat-message-item__bubble--sent]="message.sent"
+          [class.chat-message-item__bubble--received]="!message.sent"
+        >
+          <ion-grid class="chat-message-item__audio">
+            <ion-row class="ion-align-items-center">
+              <ion-col size="auto">
+                <ion-button
+                  class="chat-message-item__play"
+                  [class.chat-message-item__play--disabled]="!message.audioUrl"
+                  fill="clear"
+                  shape="round"
+                  (click)="toggleAudio()"
+                >
+                  <ion-icon [name]="isPlaying() ? 'pause' : 'play'" slot="icon-only"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col class="chat-message-item__wave-col">
+                <ion-row class="chat-message-item__wave">
+                  @for (height of waveformBars; track $index) {
+                    <ion-col size="auto">
+                      <ion-text
+                        class="chat-message-item__bar"
+                        [style.height.px]="height * 0.32"
+                      ></ion-text>
+                    </ion-col>
+                  }
+                </ion-row>
+              </ion-col>
+              <ion-col size="auto">
+                <ion-text class="chat-message-item__duration">{{ formattedDuration }}</ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-text>
+      }
+      @default {
+        <ion-text
+          class="chat-message-item__bubble chat-message-item__bubble--text"
+          [class.chat-message-item__bubble--sent]="message.sent"
+          [class.chat-message-item__bubble--received]="!message.sent"
+        >
+          {{ message.text }}
+        </ion-text>
+      }
+    }
+    <ion-text class="chat-message-item__time">{{ message.time }}</ion-text>
+  </ion-col>
+</ion-row>

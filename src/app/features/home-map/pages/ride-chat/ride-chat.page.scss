@@ -1,0 +1,99 @@
+.ride-chat-header {
+  --background: #ffffff;
+
+  ion-toolbar {
+    --background: #ffffff;
+    --border-width: 0;
+    --padding-top: env(safe-area-inset-top, 0px);
+    --padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &__grid {
+    --ion-grid-padding: 10px 14px 0;
+    --ion-grid-column-padding: 0;
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 0 8px;
+  }
+
+  &__name {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    color: #000000;
+  }
+
+  &__status {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #10b981;
+  }
+
+  &__call {
+    --background: rgba(16, 185, 129, 0.12);
+    --background-hover: rgba(16, 185, 129, 0.18);
+    --background-activated: rgba(16, 185, 129, 0.24);
+    --border-width: 0;
+    --box-shadow: none;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+
+    ion-icon {
+      font-size: 20px;
+      color: #10b981;
+    }
+  }
+}
+
+.ride-chat {
+  --background: linear-gradient(180deg, #eef1f4 0%, #f7f8fa 100%);
+
+  &__messages {
+    --ion-grid-padding: 14px 12px 20px;
+    --ion-grid-column-padding: 0;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  &__date-row {
+    margin-bottom: 14px;
+  }
+
+  &__date-chip {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    font-family: var(--kk-font-body);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.55);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.ride-chat-footer {
+  --background: #ffffff;
+
+  ion-toolbar {
+    --background: #ffffff;
+    --border-width: 0;
+    --padding-top: 0;
+    --padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+}

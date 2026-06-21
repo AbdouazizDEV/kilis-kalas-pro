@@ -1,0 +1,101 @@
+@if (showEmojiPanel()) {
+  <ion-grid class="chat-composer__emoji-panel">
+    <ion-row>
+      @for (emoji of emojis; track emoji) {
+        <ion-col size="3" class="chat-composer__emoji-col">
+          <ion-button class="chat-composer__emoji-btn" fill="clear" (click)="appendEmoji(emoji)">
+            <ion-text>{{ emoji }}</ion-text>
+          </ion-button>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+}
+
+@if (showAttachPanel()) {
+  <ion-grid class="chat-composer__attach-panel">
+    <ion-row>
+      <ion-col size="4" class="ion-text-center">
+        <ion-button class="chat-composer__attach-option" fill="clear" (click)="pickPhotoFromCamera()">
+          <ion-icon name="image-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-text class="chat-composer__attach-label">{{ 'DRIVER.CHAT.PHOTO' | translate }}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+}
+
+@if (isRecording()) {
+  <ion-grid class="chat-composer__recording">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="auto">
+        <ion-text class="chat-composer__recording-dot"></ion-text>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-text class="chat-composer__recording-time">{{ recordingSeconds() }}s</ion-text>
+      </ion-col>
+      <ion-col class="chat-composer__recording-wave-col">
+        <ion-row class="chat-composer__recording-wave">
+          @for (bar of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; track bar) {
+            <ion-col size="auto">
+              <ion-text class="chat-composer__recording-bar"></ion-text>
+            </ion-col>
+          }
+        </ion-row>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button class="chat-composer__recording-cancel" fill="clear" (click)="cancelRecording()">
+          <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button class="chat-composer__recording-send" fill="clear" (click)="toggleRecording()">
+          <ion-icon name="send-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+} @else {
+  <ion-grid class="chat-composer">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="auto">
+        <ion-button class="chat-composer__attach" fill="clear" shape="round" (click)="toggleAttachPanel()">
+          <ion-icon name="attach-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col class="chat-composer__input-col">
+        <ion-grid class="chat-composer__input-wrap">
+          <ion-row class="ion-align-items-center">
+            <ion-col>
+              <ion-input
+                class="chat-composer__input"
+                [placeholder]="'DRIVER.CHAT.PLACEHOLDER' | translate"
+                [value]="draft"
+                (ionInput)="onDraftInput($event)"
+                (keyup.enter)="submitText()"
+              ></ion-input>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-button class="chat-composer__emoji" fill="clear" shape="round" (click)="toggleEmojiPanel()">
+                <ion-icon name="happy-outline" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+
+      <ion-col size="auto">
+        @if (canSendText) {
+          <ion-button class="chat-composer__send" fill="clear" shape="round" (click)="submitText()">
+            <ion-icon name="send-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        } @else {
+          <ion-button class="chat-composer__mic" fill="clear" shape="round" (click)="toggleRecording()">
+            <ion-icon name="mic-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        }
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+}

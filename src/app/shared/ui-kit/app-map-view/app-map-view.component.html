@@ -1,4 +1,16 @@
 <div class="map-view">
-  <ion-icon name="map-outline" class="map-view__icon"></ion-icon>
-  <ion-text class="map-view__text">{{ placeholder }}</ion-text>
+  <div #mapHost class="map-view__host"></div>
+
+  @if (loading) {
+    <div class="map-view__overlay">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  }
+
+  @if (loadError) {
+    <div class="map-view__overlay map-view__overlay--error">
+      <ion-icon name="map-outline" class="map-view__icon"></ion-icon>
+      <ion-text class="map-view__text">Carte indisponible — vérifiez la clé Google Maps</ion-text>
+    </div>
+  }
 </div>

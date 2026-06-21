@@ -1,0 +1,137 @@
+.ride-completed-sheet {
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: 0;
+  width: 100%;
+  padding: 13px 20px calc(16px + env(safe-area-inset-bottom, 0px));
+  background: #f9f9f9;
+  border-radius: 60px 60px 0 0;
+
+  &__handle-col {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+  }
+
+  &__handle {
+    display: block;
+    width: 48px;
+    height: 2px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.61);
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 20px;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    color: #000000;
+  }
+
+  &__profile {
+    margin-bottom: 20px;
+  }
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    background: #e5eff4;
+  }
+
+  &__name {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+    color: #000000;
+  }
+
+  &__vehicle {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  &__info {
+    margin-bottom: 10px;
+    padding: 0 4px;
+  }
+
+  &__label,
+  &__value {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-size: 13px;
+    line-height: 18px;
+    color: #000000;
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__value {
+    font-weight: 400;
+  }
+
+  &__divider {
+    margin: 16px 0;
+  }
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.2);
+  }
+
+  &__actions {
+    gap: 8px;
+  }
+
+  &__action-col {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0;
+  }
+
+  &__details,
+  &__finish {
+    --border-radius: 100px;
+    --border-width: 0;
+    --box-shadow: none;
+    height: 50px;
+    margin: 0;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: none;
+  }
+
+  &__details {
+    --background: #ffffff;
+    --border-color: #10b981;
+    --border-style: solid;
+    --border-width: 1px;
+
+    ion-label {
+      color: #000000;
+    }
+  }
+
+  &__finish {
+    --background: #10b981;
+
+    ion-label {
+      color: #000000;
+    }
+  }
+}

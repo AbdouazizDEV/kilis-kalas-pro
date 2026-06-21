@@ -1,0 +1,10 @@
+<div class="registration-progress" role="progressbar" [attr.aria-valuenow]="currentStep" [attr.aria-valuemax]="totalSteps">
+  <div class="registration-progress__row">
+    @for (step of steps; track step) {
+      <span
+        class="registration-progress__segment"
+        [class.registration-progress__segment--active]="isActive(step)"
+      ></span>
+    }
+  </div>
+</div>

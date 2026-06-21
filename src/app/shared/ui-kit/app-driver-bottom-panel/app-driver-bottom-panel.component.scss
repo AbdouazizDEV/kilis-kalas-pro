@@ -1,0 +1,92 @@
+.driver-bottom-panel {
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: 0;
+  width: 100%;
+  padding: 13px 20px calc(16px + env(safe-area-inset-bottom, 0px));
+  background: #f9f9f9;
+  border-radius: 60px 60px 0 0;
+  box-sizing: border-box;
+
+  &__handle-col {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 18px;
+  }
+
+  &__handle {
+    display: block;
+    width: 48px;
+    height: 2px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.61);
+  }
+
+  &__actions {
+    gap: 0px;
+  }
+
+  &__stats-col,
+  &__status-col,
+  &__nav-col,
+  &__spacer {
+    padding: 0;
+  }
+
+  &__spacer {
+    width: 50px;
+    flex: 0 0 50px;
+  }
+
+  &__status-col {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__status,
+  &__navigate {
+    --border-width: 0;
+    --box-shadow: none;
+    width: 165px;
+    height: 50px;
+    margin: 0;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  &__status {
+    --background: rgba(234, 67, 53, 0.15);
+    --background-hover: rgba(234, 67, 53, 0.22);
+    --background-activated: rgba(234, 67, 53, 0.28);
+    --border-radius: 100px;
+    --color: #ea4335;
+
+    &--online {
+      --background: rgba(16, 185, 129, 0.15);
+      --background-hover: rgba(16, 185, 129, 0.22);
+      --background-activated: rgba(16, 185, 129, 0.28);
+      --color: #0a7f5c;
+    }
+
+    ion-label {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 21px;
+    }
+  }
+
+  &__navigate {
+    --background: #eeeded;
+    --border-radius: 100px;
+    --color: #000000;
+    width: min(100%, 280px);
+
+    ion-label {
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+}

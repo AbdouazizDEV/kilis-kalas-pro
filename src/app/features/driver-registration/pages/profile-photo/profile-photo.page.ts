@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonContent, IonText } from '@ionic/angular/standalone';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Capacitor } from '@capacitor/core';
+import { IonContent } from '@ionic/angular/standalone';
 import { TranslatePipe } from '@ngx-translate/core';
-import { AppAvatarComponent } from '../../../../shared/ui-kit/app-avatar/app-avatar.component';
 import { AppBackButtonComponent } from '../../../../shared/ui-kit/app-back-button/app-back-button.component';
-import { AppButtonComponent } from '../../../../shared/ui-kit/app-button/app-button.component';
-import { AppDocumentUploadComponent } from '../../../../shared/ui-kit/app-document-upload/app-document-upload.component';
-import { DocumentType } from '../../../../models/document.model';
+import { AppPillButtonComponent } from '../../../../shared/ui-kit/app-pill-button/app-pill-button.component';
+import { AppRegistrationProgressComponent } from '../../../../shared/ui-kit/app-registration-progress/app-registration-progress.component';
 import { DriverRegistrationStateService } from '../../services/driver-registration-state.service';
 
 @Component({
@@ -14,12 +14,10 @@ import { DriverRegistrationStateService } from '../../services/driver-registrati
   standalone: true,
   imports: [
     IonContent,
-    IonText,
     TranslatePipe,
-    AppAvatarComponent,
     AppBackButtonComponent,
-    AppButtonComponent,
-    AppDocumentUploadComponent,
+    AppPillButtonComponent,
+    AppRegistrationProgressComponent,
   ],
   templateUrl: './profile-photo.page.html',
   styleUrls: ['./profile-photo.page.scss'],
@@ -28,20 +26,70 @@ export class ProfilePhotoPage {
   private readonly router = inject(Router);
   readonly registrationState = inject(DriverRegistrationStateService);
 
-  onFileSelected(event: { type: DocumentType; file: File; dataUrl: string }): void {
-    this.registrationState.setDocument({
-      type: event.type,
-      fileName: event.file.name,
-      mimeType: event.file.type,
-      dataUrl: event.dataUrl,
-      uploadedAt: new Date().toISOString(),
-    });
+  @ViewChild('fileInput') fileInputRef?: ElementRef<HTMLInputElement>;
+
+  readonly registrationStep = 1;
+  readonly totalSteps = 5;
+
+  get photoUrl(): string {
+    return this.registrationState.draft$().profilePhoto?.dataUrl ?? '';
+  }
+
+  get hasPhoto(): boolean {
+    return this.registrationState.isProfilePhotoComplete();
+  }
+
+  async takePhoto(): Promise<void> {
+    if (Capacitor.isNativePlatform()) {
+      try {
+        const photo = await Camera.getPhoto({
+          quality: 90,
+          allowEditing: false,
+          resultType: CameraResultType.DataUrl,
+          source: CameraSource.Prompt,
+        });
+
+        if (photo.dataUrl) {
+          this.savePhoto(photo.dataUrl, 'profile-photo.jpg', 'image/jpeg');
+        }
+        return;
+      } catch {
+        // Fallback vers input fichier sur refus caméra
+      }
+    }
+
+    this.fileInputRef?.nativeElement.click();
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.savePhoto(reader.result as string, file.name, file.type);
+    };
+    reader.readAsDataURL(file);
+    input.value = '';
   }
 
   continue(): void {
-    if (!this.registrationState.isProfilePhotoComplete()) {
+    if (!this.hasPhoto) {
       return;
     }
-    this.router.navigate(['/driver-registration/summary']);
+    this.router.navigate(['/driver-registration/national-id-photo']);
+  }
+
+  private savePhoto(dataUrl: string, fileName: string, mimeType: string): void {
+    this.registrationState.setDocument({
+      type: 'profile_photo',
+      fileName,
+      mimeType,
+      dataUrl,
+      uploadedAt: new Date().toISOString(),
+    });
   }
 }

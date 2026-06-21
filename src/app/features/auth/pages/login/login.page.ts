@@ -73,7 +73,7 @@ export class LoginPage {
             return;
           }
           if (result.success) {
-            void this.router.navigateByUrl('/verification-pending');
+            void this.router.navigateByUrl('/driver/home');
             return;
           }
           this.errorMessage = result.message ?? 'AUTH.LOGIN.ERROR';
@@ -86,6 +86,6 @@ export class LoginPage {
   }
 
   onGoogleLogin(): void {
-    void this.router.navigateByUrl('/verification-pending');
+    void this.router.navigateByUrl('/driver/home');
   }
 }

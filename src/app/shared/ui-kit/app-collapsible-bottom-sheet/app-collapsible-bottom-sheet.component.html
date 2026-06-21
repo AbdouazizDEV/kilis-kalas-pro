@@ -1,0 +1,16 @@
+<ion-grid
+  class="collapsible-sheet"
+  [class.collapsible-sheet--collapsed]="collapsed"
+>
+  <ion-row class="ion-justify-content-center collapsible-sheet__handle-row" (click)="toggle()">
+    <ion-col size="12" class="collapsible-sheet__handle-col">
+      <ion-text class="collapsible-sheet__handle"></ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="collapsible-sheet__content">
+    <ion-col size="12">
+      <ng-content></ng-content>
+    </ion-col>
+  </ion-row>
+</ion-grid>

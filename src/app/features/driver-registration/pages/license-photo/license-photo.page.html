@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true" class="registration-photo-step license-photo">
+  <input
+    #fileInput
+    type="file"
+    class="registration-photo-step__file-input"
+    accept="image/*"
+    capture="environment"
+    (change)="onFileSelected($event)"
+  />
+
+  <div class="registration-photo-step__shell">
+    <div class="registration-photo-step__main">
+      <div class="registration-photo-step__nav">
+        <app-back-button defaultHref="/driver-registration/national-id-photo"></app-back-button>
+      </div>
+
+      <h1 class="registration-photo-step__title">{{ 'DRIVER.LICENSE_PHOTO.TITLE' | translate }}</h1>
+
+      <div class="registration-photo-step__progress">
+        <app-registration-progress
+          [totalSteps]="totalSteps"
+          [currentStep]="registrationStep"
+        ></app-registration-progress>
+      </div>
+
+      <div class="registration-photo-step__preview">
+        @if (photoUrl) {
+          <img [src]="photoUrl" alt="" class="registration-photo-step__document-image" />
+        } @else {
+          <div class="registration-photo-step__document-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 80 52" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="72" height="44" rx="6" stroke="currentColor" stroke-width="3" />
+              <circle cx="24" cy="22" r="7" stroke="currentColor" stroke-width="3" />
+              <path d="M38 14h30M38 22h30M38 30h22M38 38h26" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+        }
+      </div>
+
+      <p class="registration-photo-step__instructions">
+        {{ 'DRIVER.LICENSE_PHOTO.INSTRUCTIONS' | translate }}
+      </p>
+    </div>
+
+    <div class="registration-photo-step__footer">
+      @if (hasPhoto) {
+        <div class="registration-photo-step__dual-actions">
+          <app-pill-button variant="outline" expand="block" (buttonClick)="takePhoto()">
+            {{ 'DRIVER.LICENSE_PHOTO.TAKE_PHOTO' | translate }}
+          </app-pill-button>
+          <app-pill-button expand="block" (buttonClick)="continue()">
+            {{ 'DRIVER.LICENSE_PHOTO.SUBMIT' | translate }}
+          </app-pill-button>
+        </div>
+      } @else {
+        <app-pill-button expand="block" (buttonClick)="takePhoto()">
+          {{ 'DRIVER.LICENSE_PHOTO.TAKE_PHOTO' | translate }}
+        </app-pill-button>
+      }
+    </div>
+  </div>
+</ion-content>

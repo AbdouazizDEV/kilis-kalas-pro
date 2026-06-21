@@ -1,0 +1,44 @@
+<ion-grid class="driver-bottom-panel">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="driver-bottom-panel__handle-col">
+      <ion-text class="driver-bottom-panel__handle"></ion-text>
+    </ion-col>
+  </ion-row>
+
+  @if (navigating) {
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="driver-bottom-panel__nav-col">
+        <ion-button class="driver-bottom-panel__navigate" fill="clear" expand="block">
+          <ion-label>{{ remainingKm | number: '1.1-1' }}km {{ 'DRIVER.HOME.REMAINING' | translate }}</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  } @else {
+    <ion-row class="ion-align-items-center driver-bottom-panel__actions">
+      <ion-col size="auto" class="driver-bottom-panel__stats-col">
+        <app-circle-icon-button
+          [imageSrc]="statsIconSrc"
+          [outlined]="true"
+          [ariaLabel]="'DRIVER.HOME.STATS' | translate"
+          (buttonClick)="onStatsClick()"
+        ></app-circle-icon-button>
+      </ion-col>
+
+      <ion-col class="driver-bottom-panel__status-col">
+        <ion-button
+          class="driver-bottom-panel__status"
+          [class.driver-bottom-panel__status--online]="online"
+          fill="clear"
+          expand="block"
+          (click)="onStatusClick()"
+        >
+          <ion-label>
+            {{ (online ? 'DRIVER.HOME.ONLINE' : 'DRIVER.HOME.OFFLINE') | translate }}
+          </ion-label>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="auto" class="driver-bottom-panel__spacer" aria-hidden="true"></ion-col>
+    </ion-row>
+  }
+</ion-grid>

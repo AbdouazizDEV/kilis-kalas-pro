@@ -1,49 +1,93 @@
-<ion-content [fullscreen]="true">
-  <div class="page-container">
-    <app-back-button></app-back-button>
-    <h1 class="page-title">{{ 'DRIVER.VEHICLE.TITLE' | translate }}</h1>
-    <p class="page-subtitle">{{ 'DRIVER.VEHICLE.SUBTITLE' | translate }}</p>
+<ion-content [fullscreen]="true" class="registration-form-step vehicle-info">
+  <div class="registration-form-step__shell">
+    <div class="registration-form-step__main">
+      <div class="registration-form-step__nav">
+        <app-back-button defaultHref="/driver-registration/license-photo"></app-back-button>
+      </div>
 
-    <form [formGroup]="form" (ngSubmit)="submit()" class="vehicle-form">
-      <app-input
-        formControlName="vehicleBrand"
-        [label]="'DRIVER.VEHICLE.BRAND' | translate"
-        [placeholder]="'COMMON.PLACEHOLDER' | translate"
-        variant="pill"
-      ></app-input>
+      <h1 class="registration-form-step__title">{{ 'DRIVER.VEHICLE.TITLE' | translate }}</h1>
 
-      <app-input
-        formControlName="vehicleModel"
-        [label]="'DRIVER.VEHICLE.MODEL' | translate"
-        [placeholder]="'COMMON.PLACEHOLDER' | translate"
-        variant="pill"
-      ></app-input>
+      <div class="registration-form-step__progress">
+        <app-registration-progress
+          [totalSteps]="totalSteps"
+          [currentStep]="registrationStep"
+        ></app-registration-progress>
+      </div>
 
-      <app-input
-        formControlName="vehiclePlate"
-        [label]="'DRIVER.VEHICLE.PLATE' | translate"
-        placeholder="DK-1234-AB"
-        variant="pill"
-      ></app-input>
+      <div class="vehicle-info__preview" [style.--vehicle-accent]="selectedColorHex()">
+        <span class="vehicle-info__preview-badge">{{ transportLabelKey() | translate }}</span>
+        <p class="vehicle-info__preview-plate">
+          {{ form.controls.vehiclePlate.value || ('DRIVER.VEHICLE.PLATE_PLACEHOLDER' | translate) }}
+        </p>
+        <p class="vehicle-info__preview-meta">
+          @if (form.controls.vehicleBrand.value || form.controls.vehicleModel.value) {
+            {{ form.controls.vehicleBrand.value }}
+            @if (form.controls.vehicleModel.value) {
+              · {{ form.controls.vehicleModel.value }}
+            }
+          } @else {
+            {{ 'DRIVER.VEHICLE.PREVIEW_HINT' | translate }}
+          }
+        </p>
+      </div>
 
-      <app-input
-        formControlName="vehicleColor"
-        [label]="'DRIVER.VEHICLE.COLOR' | translate"
-        [placeholder]="'COMMON.PLACEHOLDER' | translate"
-        variant="pill"
-      ></app-input>
+      <form [formGroup]="form" (ngSubmit)="submit()" class="vehicle-info__form" novalidate>
+        <div class="registration-form-step__field">
+          <label class="registration-form-step__field-label" for="vehiclePlate">
+            {{ 'DRIVER.VEHICLE.PLATE' | translate }}
+          </label>
+          <input
+            id="vehiclePlate"
+            class="registration-form-step__input"
+            type="text"
+            formControlName="vehiclePlate"
+            [placeholder]="'DRIVER.VEHICLE.PLATE_INPUT_PLACEHOLDER' | translate"
+            autocomplete="off"
+          />
+        </div>
 
-      <app-input
-        formControlName="vehicleYear"
-        type="number"
-        [label]="'DRIVER.VEHICLE.YEAR' | translate"
-        placeholder="2020"
-        variant="pill"
-      ></app-input>
+        <div class="registration-form-step__field">
+          <label class="registration-form-step__field-label" for="vehicleBrand">
+            {{ 'DRIVER.VEHICLE.BRAND' | translate }}
+          </label>
+          <div class="registration-form-step__select-wrap">
+            <select id="vehicleBrand" class="registration-form-step__select" formControlName="vehicleBrand">
+              <option value="" disabled>{{ 'DRIVER.VEHICLE.BRAND_PLACEHOLDER' | translate }}</option>
+              @for (brand of brandOptions(); track brand) {
+                <option [value]="brand">{{ brand }}</option>
+              }
+            </select>
+          </div>
+        </div>
 
-      <app-button [disabled]="form.invalid" (buttonClick)="submit()">
-        {{ 'COMMON.CONTINUE' | translate }}
-      </app-button>
-    </form>
+        <div class="registration-form-step__field">
+          <label class="registration-form-step__field-label" for="vehicleModel">
+            {{ 'DRIVER.VEHICLE.MODEL' | translate }}
+          </label>
+          <input
+            id="vehicleModel"
+            class="registration-form-step__input"
+            type="text"
+            formControlName="vehicleModel"
+            [placeholder]="'DRIVER.VEHICLE.MODEL_PLACEHOLDER' | translate"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="registration-form-step__field vehicle-info__colors">
+          <app-color-palette
+            formControlName="vehicleColor"
+            [colors]="colorOptions"
+            [label]="'DRIVER.VEHICLE.COLOR' | translate"
+          ></app-color-palette>
+        </div>
+      </form>
+    </div>
+
+    <div class="registration-form-step__footer">
+      <app-pill-button expand="block" [disabled]="form.invalid" (buttonClick)="submit()">
+        {{ 'DRIVER.VEHICLE.SUBMIT' | translate }}
+      </app-pill-button>
+    </div>
   </div>
 </ion-content>

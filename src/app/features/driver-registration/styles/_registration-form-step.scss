@@ -1,0 +1,132 @@
+// Layout partagé — étapes formulaire inscription (375 × 812)
+.registration-form-step {
+  --step-pad-x: 5.33%;
+  --step-content-w: 89.33%;
+  --step-nav-top: 9.73%;
+
+  --background: #ffffff;
+  font-size: 100%;
+
+  &__shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--step-nav-top) var(--step-pad-x) calc(6.03% + env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 0;
+  }
+
+  &__nav {
+    flex: 0 0 auto;
+    margin-bottom: 2.46%;
+  }
+
+  &__title {
+    margin: 0 0 4.68%;
+    font-family: var(--kk-font-body);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+  }
+
+  &__progress {
+    width: var(--step-content-w);
+    margin: 0 auto 7%;
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+    width: var(--step-content-w);
+    margin: 24px auto 0;
+  }
+
+  &__field {
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  &__field-label {
+    display: block;
+    margin: 0 0 8px;
+    padding-left: 3.28%;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    color: #000000;
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    height: 50px;
+    padding: 0 5.37%;
+    border: none;
+    border-radius: 100px;
+    background: #eeeded;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 123%;
+    color: #000000;
+    box-sizing: border-box;
+    outline: none;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    &:focus {
+      background: #ffffff;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.35);
+    }
+  }
+
+  &__select-wrap {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid rgba(0, 0, 0, 0.55);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.55);
+      transform: translateY(-70%) rotate(45deg);
+      pointer-events: none;
+    }
+  }
+
+  &__select {
+    appearance: none;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .registration-form-step {
+    --step-pad-x: 8%;
+    --step-content-w: 72%;
+    font-size: 112.5%;
+
+    &__shell {
+      max-width: 640px;
+    }
+  }
+}

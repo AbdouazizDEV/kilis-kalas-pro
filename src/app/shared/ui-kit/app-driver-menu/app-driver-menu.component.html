@@ -1,0 +1,39 @@
+<ion-header class="driver-menu__header ion-no-border">
+  <ion-toolbar class="driver-menu__toolbar">
+    <ion-buttons slot="start">
+      <app-circle-icon-button
+        icon="arrow-back-outline"
+        [dark]="true"
+        [ariaLabel]="'COMMON.BACK' | translate"
+        (buttonClick)="onBack()"
+      ></app-circle-icon-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="driver-menu" [fullscreen]="true">
+  <div class="driver-menu__hero">
+    <ion-avatar class="driver-menu__avatar">
+      @if (photoUrl) {
+        <ion-img [src]="photoUrl" [alt]="fullName"></ion-img>
+      } @else {
+        <ion-icon name="person" class="driver-menu__avatar-fallback"></ion-icon>
+      }
+    </ion-avatar>
+    <ion-text class="driver-menu__name">{{ fullName }}</ion-text>
+  </div>
+
+  <ion-list class="driver-menu__list" lines="none">
+    @for (item of menuItems; track item.id) {
+      <ion-item button detail="false" class="driver-menu__item" (click)="onItemClick(item.id)">
+        <ion-icon slot="start" [name]="item.icon" class="driver-menu__item-icon"></ion-icon>
+        <ion-label>{{ item.labelKey | translate }}</ion-label>
+      </ion-item>
+    }
+  </ion-list>
+
+  <ion-button class="driver-menu__logout" expand="block" (click)="onLogout()">
+    <ion-icon slot="start" name="log-out-outline"></ion-icon>
+    <ion-label>{{ 'DRIVER.HOME.LOGOUT' | translate }}</ion-label>
+  </ion-button>
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-grid class="ride-completed-sheet">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="ride-completed-sheet__handle-col">
+      <ion-text class="ride-completed-sheet__handle"></ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="ion-text-center">
+      <ion-text class="ride-completed-sheet__title">{{ 'DRIVER.HOME.RIDE_COMPLETED' | translate }}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center ride-completed-sheet__profile">
+    <ion-col size="12" class="ion-text-center">
+      <ion-avatar class="ride-completed-sheet__avatar">
+        @if (requesterPhotoUrl) {
+          <ion-img [src]="requesterPhotoUrl" [alt]="requesterName"></ion-img>
+        }
+      </ion-avatar>
+      <ion-text class="ride-completed-sheet__name">{{ requesterName }}</ion-text>
+      @if (vehicleLabel) {
+        <ion-text class="ride-completed-sheet__vehicle">{{ vehicleLabel }}</ion-text>
+      }
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-completed-sheet__info">
+    <ion-col size="6">
+      <ion-text class="ride-completed-sheet__label">{{ 'DRIVER.HOME.RIDE_COMPLETED' | translate }}</ion-text>
+    </ion-col>
+    <ion-col size="6" class="ion-text-end">
+      <ion-text class="ride-completed-sheet__value">{{ ride.id }}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-completed-sheet__info">
+    <ion-col size="6">
+      <ion-text class="ride-completed-sheet__label">{{ 'DRIVER.HOME.DATE_LABEL' | translate }}</ion-text>
+    </ion-col>
+    <ion-col size="6" class="ion-text-end">
+      <ion-text class="ride-completed-sheet__value">{{ formattedDate }}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-completed-sheet__divider">
+    <ion-col size="12">
+      <ion-text class="ride-completed-sheet__line"></ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-completed-sheet__actions ion-nowrap ion-align-items-center">
+    <ion-col size="6" class="ride-completed-sheet__action-col">
+      <ion-button class="ride-completed-sheet__details" expand="block" fill="clear" (click)="viewDetailsClick.emit()">
+        <ion-label>{{ 'DRIVER.HOME.VIEW_DETAILS' | translate }}</ion-label>
+      </ion-button>
+    </ion-col>
+    <ion-col size="6" class="ride-completed-sheet__action-col">
+      <ion-button class="ride-completed-sheet__finish" expand="block" fill="clear" (click)="finishClick.emit()">
+        <ion-label>{{ 'DRIVER.HOME.FINISH' | translate }}</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

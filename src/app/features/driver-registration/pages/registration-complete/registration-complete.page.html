@@ -1,0 +1,70 @@
+<ion-content [fullscreen]="true" class="registration-complete">
+  <div class="registration-complete__fx" aria-hidden="true">
+    <div class="registration-complete__glow registration-complete__glow--1"></div>
+    <div class="registration-complete__glow registration-complete__glow--2"></div>
+    <div class="registration-complete__sparkles"></div>
+
+    <div class="registration-complete__confetti">
+      @for (piece of confettiPieces; track $index) {
+        <span
+          class="registration-complete__confetti-piece"
+          [class.registration-complete__confetti-piece--circle]="piece.shape === 'circle'"
+          [style.left.%]="piece.left"
+          [style.animationDelay.s]="piece.delay"
+          [style.animationDuration.s]="piece.duration"
+          [style.--confetti-rotate]="piece.rotate + 'deg'"
+          [style.--confetti-drift]="piece.drift + 'px'"
+          [style.--confetti-color]="piece.color"
+          [style.width.px]="piece.width"
+          [style.height.px]="piece.height"
+        ></span>
+      }
+    </div>
+  </div>
+
+  <div class="registration-complete__shell">
+    <div class="registration-complete__nav registration-complete__reveal registration-complete__reveal--nav">
+      <app-back-button defaultHref="/driver-registration/insurance-photo"></app-back-button>
+    </div>
+
+    <div class="registration-complete__content">
+      <div class="registration-complete__icon-wrap registration-complete__reveal registration-complete__reveal--icon">
+        <span class="registration-complete__ring registration-complete__ring--1"></span>
+        <span class="registration-complete__ring registration-complete__ring--2"></span>
+
+        <div class="registration-complete__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle class="registration-complete__icon-circle" cx="32" cy="32" r="32" fill="#10B981" />
+            <path
+              class="registration-complete__icon-check"
+              d="M18 33.5L27.5 43L46 24.5"
+              stroke="#000000"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="registration-complete__title registration-complete__reveal registration-complete__reveal--title">
+        {{ 'DRIVER.COMPLETE.TITLE' | translate: { name: welcomeName } }}
+      </h1>
+      <p class="registration-complete__subtitle registration-complete__reveal registration-complete__reveal--subtitle">
+        {{ 'DRIVER.COMPLETE.SUBTITLE' | translate }}
+      </p>
+
+      @if (errorMessage()) {
+        <p class="registration-complete__error registration-complete__reveal registration-complete__reveal--error">
+          {{ errorMessage() | translate }}
+        </p>
+      }
+    </div>
+
+    <div class="registration-complete__footer registration-complete__reveal registration-complete__reveal--footer">
+      <app-pill-button expand="block" [loading]="loading()" (buttonClick)="finish()">
+        {{ 'DRIVER.COMPLETE.SUBMIT' | translate }}
+      </app-pill-button>
+    </div>
+  </div>
+</ion-content>

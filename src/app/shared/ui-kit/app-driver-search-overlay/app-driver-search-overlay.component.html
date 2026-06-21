@@ -1,0 +1,24 @@
+<ion-grid class="driver-search-overlay">
+  <ion-row class="ion-align-items-center ion-justify-content-between">
+    <ion-col size="auto">
+      <ion-button class="driver-search-overlay__stop" fill="clear" shape="round" (click)="stopClick.emit()">
+        <ion-icon name="stop" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col class="driver-search-overlay__bar-col">
+      <ion-button class="driver-search-overlay__bar" fill="clear" expand="block">
+        <ion-spinner name="crescent" slot="start"></ion-spinner>
+        <ion-label>{{ 'DRIVER.HOME.SEARCHING' | translate }}</ion-label>
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="auto">
+      <app-circle-icon-button
+        icon="locate-outline"
+        [ariaLabel]="'DRIVER.HOME.RECENTER' | translate"
+        (buttonClick)="locateClick.emit()"
+      ></app-circle-icon-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

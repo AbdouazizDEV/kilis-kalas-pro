@@ -1,15 +1,173 @@
-.register-page {
-  --background: var(--ion-background-color);
+// Référence maquette : 375 × 812 — mesures en %
+.register {
+  --register-pad-x: 5.87%;
+  --register-content-w: 89.33%;
+  --register-nav-top: 9.73%;
+  --register-title-size: 150%;
+  --register-title-lh: 158%;
+  --register-subtitle-size: 81.25%;
+  --register-subtitle-lh: 123%;
+  --register-field-gap: 4.3%;
 
-  &__form {
+  --background: #ffffff;
+  font-size: 100%;
+
+  &__form-wrapper {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__layout {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--register-nav-top) var(--register-pad-x) 6%;
+    box-sizing: border-box;
+  }
+
+  &__nav-row {
+    flex: 0 0 auto;
+    width: 100%;
+    align-self: flex-start;
+    margin-bottom: 3.69%;
+  }
+
+  &__nav-col {
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__header-row {
+    flex: 0 0 auto;
+    width: var(--register-content-w);
+    margin-bottom: 4.93%;
+  }
+
+  &__header-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.46%;
+    padding: 0;
+  }
+
+  &__title {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 500;
+    font-size: var(--register-title-size);
+    line-height: var(--register-title-lh);
+    color: #000000;
+  }
+
+  &__subtitle {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 300;
+    font-size: var(--register-subtitle-size);
+    line-height: var(--register-subtitle-lh);
+    letter-spacing: 0.005em;
+    text-align: center;
+    color: #000000;
+    max-width: 79.2%;
+  }
+
+  &__form-row {
+    flex: 0 0 auto;
+    width: var(--register-content-w);
+  }
+
+  &__form-col {
+    padding: 0;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--register-field-gap);
+    width: 100%;
   }
 
   &__error {
     display: block;
-    margin-bottom: 12px;
-    font-size: 0.875rem;
+    font-size: 87.5%;
+    margin-top: 1%;
+  }
+
+  &__terms-row {
+    flex: 0 0 auto;
+    width: 86.67%;
+    margin-top: auto;
+    padding-top: 5%;
+  }
+
+  &__terms-col {
+    padding: 0;
+  }
+
+  &__checkbox {
+    --size: 20px;
+    --checkbox-background-checked: var(--kk-brand-green, #10b981);
+    --border-color-checked: var(--kk-brand-green, #10b981);
+    --border-radius: 4px;
+
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  &__terms-label {
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 81.25%;
+    line-height: 160%;
+    color: #000000;
+    white-space: normal;
+  }
+
+  &__terms-link {
+    color: var(--kk-brand-green, #10b981);
+    font-weight: 500;
+  }
+
+  &__submit-row {
+    flex: 0 0 auto;
+    width: var(--register-content-w);
+    margin-top: 4%;
+  }
+
+  &__submit-col {
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .register {
+    --register-pad-x: 8%;
+    --register-content-w: 72%;
+    --register-title-size: 175%;
+    font-size: 112.5%;
+
+    &__layout {
+      max-width: 640px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .register {
+    --register-content-w: 56%;
+    font-size: 125%;
+
+    &__layout {
+      max-width: 720px;
+    }
   }
 }

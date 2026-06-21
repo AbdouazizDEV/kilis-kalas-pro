@@ -1,0 +1,54 @@
+<ion-grid class="ride-offer-sheet">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="ride-offer-sheet__handle-col">
+      <ion-text class="ride-offer-sheet__handle"></ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" class="ion-text-center">
+      <ion-text class="ride-offer-sheet__title">{{ 'DRIVER.HOME.RIDE_TITLE' | translate }}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-offer-sheet__route ion-align-items-center">
+    <ion-col size="auto" class="ride-offer-sheet__route-icons">
+      <ion-text class="ride-offer-sheet__dot ride-offer-sheet__dot--pickup"></ion-text>
+      <ion-text class="ride-offer-sheet__line"></ion-text>
+      <ion-icon name="location-outline" class="ride-offer-sheet__pin"></ion-icon>
+    </ion-col>
+    <ion-col class="ride-offer-sheet__route-text">
+      <ion-text class="ride-offer-sheet__address">
+        {{ 'DRIVER.HOME.DEPARTURE' | translate }} : {{ ride.pickupAddress }}
+      </ion-text>
+      <ion-text class="ride-offer-sheet__address">
+        {{ 'DRIVER.HOME.ARRIVAL' | translate }} : {{ ride.dropoffAddress }}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-offer-sheet__summary ion-align-items-center">
+    <ion-col size="auto">
+      <ion-img [src]="serviceIconSrc" class="ride-offer-sheet__service-icon"></ion-img>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <ion-text class="ride-offer-sheet__fare">{{ formattedFare }}</ion-text>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-text class="ride-offer-sheet__service">{{ serviceLabelKey | translate }}</ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ride-offer-sheet__actions ion-align-items-center ion-nowrap">
+    <ion-col size="6" class="ride-offer-sheet__action-col">
+      <ion-button class="ride-offer-sheet__refuse" expand="block" fill="clear" (click)="refuseClick.emit()">
+        <ion-label>{{ 'DRIVER.HOME.REFUSE' | translate }}</ion-label>
+      </ion-button>
+    </ion-col>
+    <ion-col size="6" class="ride-offer-sheet__action-col">
+      <ion-button class="ride-offer-sheet__accept" expand="block" fill="clear" (click)="acceptClick.emit()">
+        <ion-label>{{ 'DRIVER.HOME.ACCEPT' | translate }}</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
