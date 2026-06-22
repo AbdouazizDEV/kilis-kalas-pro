@@ -1,0 +1,22 @@
+<app-driver-subpage-header
+  titleKey="DRIVER.DOCUMENTS.TITLE"
+  backHref="/driver/home"
+></app-driver-subpage-header>
+
+<ion-content [fullscreen]="true" class="driver-documents">
+  <ion-grid class="driver-documents__layout">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeMd="10" sizeLg="8">
+        <ion-list class="driver-documents__list" lines="none">
+          @for (item of items; track item.id; let last = $last) {
+            <app-document-list-item
+              [labelKey]="item.labelKey"
+              [showDivider]="!last"
+              (itemClick)="onItemClick(item.route)"
+            ></app-document-list-item>
+          }
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

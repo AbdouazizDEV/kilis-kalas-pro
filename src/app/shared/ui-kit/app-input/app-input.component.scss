@@ -5,18 +5,19 @@
   padding: 0;
 
   &__label-row {
-    margin-bottom: 1.5%;
+    margin-bottom: 8px;
   }
 
   &__label {
     display: block;
     font-family: var(--kk-font-body);
-    font-weight: 400;
-    font-size: 93.75%;
-    line-height: 140%;
-    color: #000000;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(0, 0, 0, 0.55);
     margin: 0;
-    padding-left: 3.28%;
+    padding-left: 4px;
   }
 
   &__control-row {
@@ -34,11 +35,16 @@
   border-radius: var(--kk-border-radius);
 
   &--error {
-    border-color: var(--kk-danger);
+    border-color: var(--kk-danger, #dc2626);
+  }
+
+  &--pill.app-input--error {
+    border-color: var(--kk-danger, #dc2626);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
   }
 
   &--pill {
-    --background: #eeeded;
+    --background: #f3f4f6;
     --border-radius: 624.9375rem;
     --padding-start: 5.37%;
     --padding-end: 4%;
@@ -46,10 +52,24 @@
     --inner-padding-top: 3.8%;
     --inner-padding-bottom: 3.8%;
     align-items: center;
-    border: none;
+    border: 1.5px solid transparent;
     margin-bottom: 0;
     width: 100%;
     overflow: hidden;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus-within {
+      --background: #ffffff;
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    }
+
+    &-soft {
+      --border-radius: 16px;
+      border-radius: 16px;
+      min-height: 52px;
+      --min-height: 52px;
+    }
 
     ion-input {
       flex: 1;
@@ -59,13 +79,13 @@
       --padding-end: 2%;
       --padding-top: 0;
       --padding-bottom: 0;
-      --placeholder-color: rgba(0, 0, 0, 0.6);
+      --placeholder-color: rgba(0, 0, 0, 0.38);
       --placeholder-opacity: 1;
       font-family: var(--kk-font-body);
-      font-weight: 400;
-      font-size: 81.25%;
-      line-height: 123%;
-      color: #000000;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+      color: #111827;
     }
 
     .app-input__toggle {

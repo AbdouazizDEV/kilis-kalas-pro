@@ -1,0 +1,85 @@
+.app-earnings-chart {
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: 0;
+  width: 100%;
+
+  &__bars {
+    gap: 8px;
+    min-height: 175px;
+  }
+
+  &__col {
+    padding: 0;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  &__track {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 175px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__bar {
+    display: block;
+    width: 100%;
+    min-height: 12px;
+    background: #10b981;
+    border-radius: 10px;
+    transition: height 0.25s ease;
+  }
+
+  &__labels {
+    margin-top: 12px;
+    gap: 4px;
+  }
+
+  &__label-col {
+    padding: 0;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  &__label {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+  }
+
+  &--dense {
+    overflow-x: auto;
+
+    .app-earnings-chart__bars,
+    .app-earnings-chart__labels {
+      min-width: 480px;
+      gap: 4px;
+    }
+
+    .app-earnings-chart__label {
+      font-size: 9px;
+      line-height: 18px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .app-earnings-chart {
+    &__bars,
+    &__track {
+      min-height: 200px;
+      height: 200px;
+    }
+
+    &__label {
+      font-size: 11px;
+    }
+  }
+}

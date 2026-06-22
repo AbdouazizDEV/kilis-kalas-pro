@@ -91,6 +91,62 @@
       "MODEL_PLACEHOLDER": "Ex: Corolla, Wave…",
       "PREVIEW_HINT": "Marque et modèle de votre engin"
     },
+    "PROFILE": {
+      "TITLE": "Informations personnelles",
+      "SUBTITLE": "Mettez à jour vos coordonnées visibles par les passagers.",
+      "ROLE": "Chauffeur",
+      "FIRST_NAME": "Prénom",
+      "LAST_NAME": "Nom",
+      "EMAIL": "Email",
+      "EMAIL_PLACEHOLDER": "exemple@email.com",
+      "EMAIL_INVALID": "Adresse email invalide",
+      "PHONE": "Téléphone",
+      "PHONE_PLACEHOLDER": "77 000 00 00",
+      "SAVE": "Sauvegarder les changements",
+      "SAVED": "Profil mis à jour"
+    },
+    "DASHBOARD": {
+      "TITLE": "Tableau de bord",
+      "PERIOD_WEEK": "Semaine",
+      "PERIOD_MONTH": "Mois",
+      "PERIOD_YEAR": "Année",
+      "DAY_BALANCE": "Soldes de la journée",
+      "AMOUNT_DUE": "Montants à verser",
+      "PAYMENT_WARNING": "Attention votre compte sera bloqué si vous n'effectuez pas le versement de la journée.",
+      "SCAN_TO_PAY": "Scannez pour verser le montant demandé"
+    },
+    "DOCUMENTS": {
+      "TITLE": "Documents",
+      "TRANSPORT": "Moyen de transport",
+      "NATIONAL_ID": "Photo de la CNI",
+      "LICENSE": "Photo du permis de conduire",
+      "VEHICLE": "Numéro plaque et marque",
+      "INSURANCE": "Photo de l'assurance"
+    },
+    "HISTORY": {
+      "TITLE": "Historique",
+      "DEPARTURE": "Départ",
+      "ARRIVAL": "Arrivé",
+      "RIDE_COMPLETED": "Course terminé",
+      "DURATION": "Durée",
+      "DISTANCE": "Distance",
+      "OFFER_TYPE": "Type d'offre",
+      "ORDER_STATUS": "Statut de la commande",
+      "STATUS_SUCCESS": "Réussi"
+    },
+    "HELP": {
+      "TITLE": "Aide et assistance",
+      "TAB_FAQ": "FAQ",
+      "TAB_CONTACT": "Contact",
+      "FAQ_ORDER_QUESTION": "Comment faire une commande",
+      "FAQ_ORDER_ANSWER": "Acceptez une course depuis l'écran d'accueil, suivez l'itinéraire jusqu'au passager puis jusqu'à la destination.",
+      "FAQ_PAYMENT_QUESTION": "Comment recevoir mes paiements ?",
+      "FAQ_PAYMENT_ANSWER": "Vos gains sont visibles dans le tableau de bord. Effectuez le versement journalier via Wave ou Orange Money.",
+      "FAQ_DOCUMENTS_QUESTION": "Comment mettre à jour mes documents ?",
+      "FAQ_DOCUMENTS_ANSWER": "Ouvrez le menu Documents et sélectionnez le document à modifier.",
+      "CONTACT_PHONE": "Téléphone support",
+      "CONTACT_EMAIL": "Email support"
+    },
     "PROFILE_PHOTO": {
       "TITLE": "Prendre une photo de profile",
       "INSTRUCTIONS": "Veuillez ajouter une photo claire et naturelle de vous.\nAssurez-vous que votre visage soit bien visible, sans lunettes de soleil, casquette ni filtre.\nPrenez la photo dans un endroit bien éclairé avec un fond simple.\nCette photo permet aux passagers de vous reconnaître facilement et renforce la confiance et la sécurité sur la plateforme.",

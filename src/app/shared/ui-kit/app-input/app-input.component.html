@@ -12,6 +12,7 @@
       <ion-col size="12">
         <ion-item
           class="app-input app-input--pill"
+          [class.app-input--pill-soft]="pillShape === 'soft'"
           [class.app-input--error]="!!errorMessage"
           lines="none"
         >

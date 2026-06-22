@@ -1,0 +1,22 @@
+<ion-grid class="app-earnings-chart" [class.app-earnings-chart--dense]="isDense">
+  <ion-row class="app-earnings-chart__bars ion-align-items-end ion-nowrap">
+    @for (bar of bars; track bar.id) {
+      <ion-col class="app-earnings-chart__col">
+        <ion-text class="app-earnings-chart__track" aria-hidden="true">
+          <ion-text
+            class="app-earnings-chart__bar"
+            [style.height.px]="barHeight(bar)"
+          ></ion-text>
+        </ion-text>
+      </ion-col>
+    }
+  </ion-row>
+
+  <ion-row class="app-earnings-chart__labels ion-nowrap">
+    @for (bar of bars; track bar.id) {
+      <ion-col class="app-earnings-chart__label-col">
+        <ion-text class="app-earnings-chart__label">{{ bar.displayValue }}</ion-text>
+      </ion-col>
+    }
+  </ion-row>
+</ion-grid>

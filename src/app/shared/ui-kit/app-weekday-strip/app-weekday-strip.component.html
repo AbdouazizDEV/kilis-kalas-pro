@@ -1,0 +1,19 @@
+<ion-grid class="app-weekday-strip">
+  <ion-row class="ion-nowrap">
+    @for (day of days; track day.id; let last = $last) {
+      <ion-col class="app-weekday-strip__col">
+        <ion-button
+          class="app-weekday-strip__btn"
+          [class.app-weekday-strip__btn--active]="isSelected(day.id)"
+          [class.app-weekday-strip__btn--divider]="!last"
+          fill="clear"
+          expand="block"
+          (click)="onSelect(day.id)"
+        >
+          <ion-text class="app-weekday-strip__weekday">{{ day.weekdayLabel }}</ion-text>
+          <ion-text class="app-weekday-strip__day">{{ day.dayNumber }}</ion-text>
+        </ion-button>
+      </ion-col>
+    }
+  </ion-row>
+</ion-grid>

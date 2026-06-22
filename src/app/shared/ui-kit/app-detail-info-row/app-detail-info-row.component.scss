@@ -1,0 +1,36 @@
+.app-detail-info-row {
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: 0;
+  width: 100%;
+
+  &__label-col,
+  &__value-col {
+    padding: 0;
+  }
+
+  &__value-col {
+    text-align: end;
+    min-width: 0;
+  }
+
+  &__label,
+  &__value {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__value {
+    font-weight: 400;
+
+    &--success {
+      color: #10b981;
+    }
+  }
+}

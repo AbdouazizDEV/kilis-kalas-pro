@@ -1,0 +1,58 @@
+.app-period-segment {
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: 0;
+  width: 100%;
+  background: rgba(16, 185, 129, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+
+  ion-row {
+    width: 100%;
+  }
+
+  &__col {
+    padding: 0;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  &__btn {
+    --background: transparent;
+    --background-hover: rgba(16, 185, 129, 0.08);
+    --background-activated: rgba(16, 185, 129, 0.12);
+    --border-radius: 0;
+    --box-shadow: none;
+    --color: #000000;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    margin: 0;
+    min-height: 32px;
+    height: 32px;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: none;
+
+    &--active {
+      --background: #10b981;
+      --background-hover: #10b981;
+      --background-activated: #0ea572;
+      border-radius: 10px;
+    }
+
+    &--divider:not(.app-period-segment__btn--active) {
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .app-period-segment__btn {
+    min-height: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}

@@ -51,6 +51,14 @@ const MENU_ITEMS: DriverMenuItem[] = [
   { id: 'help', icon: 'help-circle-outline', labelKey: 'DRIVER.HOME.MENU_HELP' },
 ];
 
+const MENU_ROUTES: Partial<Record<string, string>> = {
+  profile: '/driver/profile',
+  dashboard: '/driver/dashboard',
+  documents: '/driver/documents',
+  history: '/driver/history',
+  help: '/driver/help',
+};
+
 const SEARCH_DELAY_MS = 10_000;
 
 @Component({
@@ -318,13 +326,13 @@ export class HomeMapPage implements OnInit, OnDestroy {
   }
 
   onStatsClick(): void {
-    void this.router.navigateByUrl('/driver/home');
+    void this.router.navigateByUrl('/driver/dashboard');
   }
 
   onMenuItemClick(itemId: string): void {
     void this.closeMenu();
-    void this.router.navigateByUrl('/driver/home');
-    void itemId;
+    const route = MENU_ROUTES[itemId] ?? '/driver/home';
+    void this.router.navigateByUrl(route);
   }
 
   onLogout(): void {

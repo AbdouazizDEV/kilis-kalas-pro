@@ -1,0 +1,49 @@
+<ion-grid class="app-phone-input">
+  @if (label) {
+    <ion-row class="app-phone-input__label-row">
+      <ion-col size="12">
+        <ion-label class="app-phone-input__label">{{ label }}</ion-label>
+      </ion-col>
+    </ion-row>
+  }
+
+  <ion-row class="app-phone-input__fields ion-align-items-stretch ion-nowrap">
+    <ion-col size="auto" class="app-phone-input__code-col">
+      <ion-item class="app-phone-input__code" lines="none">
+        <ion-img
+          src="assets/icon/Frame.svg"
+          alt=""
+          class="app-phone-input__flag"
+          aria-hidden="true"
+        ></ion-img>
+        <ion-text class="app-phone-input__dial">{{ countryCode }}</ion-text>
+      </ion-item>
+    </ion-col>
+
+    <ion-col class="app-phone-input__number-col">
+      <ion-item
+        class="app-phone-input__number"
+        [class.app-phone-input__number--error]="!!errorMessage"
+        lines="none"
+      >
+        <ion-input
+          type="tel"
+          inputmode="tel"
+          [placeholder]="placeholder"
+          [value]="value"
+          [disabled]="disabled"
+          (ionInput)="onInput($event)"
+          (ionBlur)="onBlur()"
+        ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  @if (errorMessage) {
+    <ion-row>
+      <ion-col size="12">
+        <ion-note color="danger" class="app-phone-input__error">{{ errorMessage }}</ion-note>
+      </ion-col>
+    </ion-row>
+  }
+</ion-grid>

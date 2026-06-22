@@ -1,0 +1,17 @@
+<ion-grid class="app-help-tabs">
+  <ion-row class="ion-nowrap">
+    @for (option of options; track option.id) {
+      <ion-col class="app-help-tabs__col">
+        <ion-button
+          class="app-help-tabs__btn"
+          [class.app-help-tabs__btn--active]="isSelected(option.id)"
+          fill="clear"
+          expand="block"
+          (click)="onSelect(option.id)"
+        >
+          {{ option.labelKey | translate }}
+        </ion-button>
+      </ion-col>
+    }
+  </ion-row>
+</ion-grid>

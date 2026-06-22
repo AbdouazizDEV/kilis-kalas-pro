@@ -1,0 +1,59 @@
+.app-faq-item {
+  --ion-grid-padding: 0 20px;
+  --ion-grid-column-padding: 0;
+  width: 100%;
+  min-height: 48px;
+  margin-bottom: 12px;
+  background: #fdfefe;
+  border-radius: 17px;
+
+  &__trigger {
+    --background: transparent;
+    --background-hover: transparent;
+    --background-activated: rgba(0, 0, 0, 0.03);
+    --box-shadow: none;
+    --color: #000000;
+    --padding-start: 0;
+    --padding-end: 0;
+    margin: 0;
+    min-height: 48px;
+    text-transform: none;
+    text-align: start;
+
+    &::part(native) {
+      justify-content: space-between;
+    }
+  }
+
+  &__question {
+    display: block;
+    flex: 1;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #000000;
+    text-align: start;
+  }
+
+  &__chevron {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.42);
+    transform: rotate(0deg);
+    transition: transform 0.2s ease;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__answer {
+    display: block;
+    padding: 0 0 14px;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.72);
+  }
+}

@@ -12,28 +12,69 @@
 </ion-header>
 
 <ion-content class="driver-menu" [fullscreen]="true">
-  <div class="driver-menu__hero">
-    <ion-avatar class="driver-menu__avatar">
-      @if (photoUrl) {
-        <ion-img [src]="photoUrl" [alt]="fullName"></ion-img>
-      } @else {
-        <ion-icon name="person" class="driver-menu__avatar-fallback"></ion-icon>
-      }
-    </ion-avatar>
-    <ion-text class="driver-menu__name">{{ fullName }}</ion-text>
-  </div>
+  <ion-grid class="driver-menu__layout">
+    <ion-row>
+      <ion-col size="12" class="driver-menu__hero-col">
+        <ion-grid class="driver-menu__hero">
+          <ion-row class="driver-menu__decor" aria-hidden="true">
+            <ion-col size="12">
+              <ion-text class="driver-menu__orb driver-menu__orb--one"></ion-text>
+              <ion-text class="driver-menu__orb driver-menu__orb--two"></ion-text>
+            </ion-col>
+          </ion-row>
 
-  <ion-list class="driver-menu__list" lines="none">
-    @for (item of menuItems; track item.id) {
-      <ion-item button detail="false" class="driver-menu__item" (click)="onItemClick(item.id)">
-        <ion-icon slot="start" [name]="item.icon" class="driver-menu__item-icon"></ion-icon>
-        <ion-label>{{ item.labelKey | translate }}</ion-label>
-      </ion-item>
-    }
-  </ion-list>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="12" class="ion-text-center driver-menu__avatar-col">
+              <ion-avatar class="driver-menu__avatar">
+                @if (photoUrl) {
+                  <ion-img [src]="photoUrl" [alt]="fullName"></ion-img>
+                } @else {
+                  <ion-icon name="person" class="driver-menu__avatar-fallback"></ion-icon>
+                }
+              </ion-avatar>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
 
-  <ion-button class="driver-menu__logout" expand="block" (click)="onLogout()">
-    <ion-icon slot="start" name="log-out-outline"></ion-icon>
-    <ion-label>{{ 'DRIVER.HOME.LOGOUT' | translate }}</ion-label>
-  </ion-button>
+    <ion-row class="driver-menu__identity ion-justify-content-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-text class="driver-menu__name">{{ fullName }}</ion-text>
+        <ion-chip class="driver-menu__role" color="success">
+          <ion-label>{{ 'DRIVER.PROFILE.ROLE' | translate }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="driver-menu__nav-row ion-justify-content-center">
+      <ion-col size="12" class="driver-menu__nav-col">
+        <ion-list class="driver-menu__list" lines="none">
+          @for (item of menuItems; track item.id) {
+            <ion-item
+              button
+              detail="false"
+              class="driver-menu__item"
+              (click)="onItemClick(item.id)"
+            >
+              <ion-text slot="start" class="driver-menu__icon-wrap" aria-hidden="true">
+                <ion-icon [name]="item.icon" class="driver-menu__item-icon"></ion-icon>
+              </ion-text>
+              <ion-label class="driver-menu__item-label">{{ item.labelKey | translate }}</ion-label>
+              <ion-icon slot="end" name="chevron-forward-outline" class="driver-menu__chevron"></ion-icon>
+            </ion-item>
+          }
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="driver-menu__logout-row ion-justify-content-center">
+      <ion-col size="12" class="driver-menu__logout-col">
+        <ion-button class="driver-menu__logout" expand="block" fill="clear" (click)="onLogout()">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          <ion-label>{{ 'DRIVER.HOME.LOGOUT' | translate }}</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

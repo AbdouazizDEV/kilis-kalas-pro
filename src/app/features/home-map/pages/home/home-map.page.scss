@@ -1,6 +1,13 @@
 .driver-home-menu {
-  --width: 100%;
-  --max-width: 375px;
+  --width: min(100%, 400px);
+  --max-width: 400px;
+}
+
+@media (min-width: 768px) {
+  .driver-home-menu {
+    --width: min(100%, 420px);
+    --max-width: 420px;
+  }
 }
 
 .driver-home {

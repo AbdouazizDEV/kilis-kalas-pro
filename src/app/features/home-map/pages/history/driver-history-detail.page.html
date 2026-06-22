@@ -1,0 +1,99 @@
+<app-driver-subpage-header
+  titleKey="DRIVER.HISTORY.TITLE"
+  backHref="/driver/history"
+></app-driver-subpage-header>
+
+<ion-content [fullscreen]="true" class="driver-history-detail">
+  @if (ride(); as detail) {
+    <ion-grid class="driver-history-detail__layout">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" sizeMd="10" sizeLg="8" class="ion-text-center driver-history-detail__profile">
+          <ion-avatar class="driver-history-detail__avatar">
+            @if (detail.passengerPhotoUrl) {
+              <ion-img [src]="detail.passengerPhotoUrl" [alt]="detail.passengerName"></ion-img>
+            } @else {
+              <ion-icon name="person" class="driver-history-detail__avatar-fallback"></ion-icon>
+            }
+          </ion-avatar>
+          <ion-text class="driver-history-detail__name">{{ detail.passengerName }}</ion-text>
+          <ion-text class="driver-history-detail__vehicle">{{ detail.vehicleInfo }}</ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center driver-history-detail__section">
+        <ion-col size="12" sizeMd="10" sizeLg="8" class="driver-history-detail__rows">
+          <app-detail-info-row
+            [label]="'DRIVER.HISTORY.RIDE_COMPLETED' | translate"
+            [value]="detail.rideCode"
+          ></app-detail-info-row>
+          <app-detail-info-row
+            [label]="'DRIVER.HOME.DATE_LABEL' | translate"
+            [value]="detail.fullDateLabel"
+          ></app-detail-info-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" sizeMd="10" sizeLg="8">
+          <ion-text class="driver-history-detail__divider" aria-hidden="true"></ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center driver-history-detail__section">
+        <ion-col size="12" sizeMd="10" sizeLg="8" class="driver-history-detail__rows">
+          <app-detail-info-row
+            [label]="'DRIVER.HISTORY.DURATION' | translate"
+            [value]="detail.durationLabel"
+          ></app-detail-info-row>
+          <app-detail-info-row
+            [label]="'DRIVER.HISTORY.DISTANCE' | translate"
+            [value]="detail.distanceLabel"
+          ></app-detail-info-row>
+          <app-detail-info-row
+            [label]="'DRIVER.HISTORY.OFFER_TYPE' | translate"
+            [value]="detail.offerType"
+          ></app-detail-info-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" sizeMd="10" sizeLg="8">
+          <ion-text class="driver-history-detail__divider" aria-hidden="true"></ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center driver-history-detail__section">
+        <ion-col size="12" sizeMd="10" sizeLg="8">
+          <app-route-timeline
+            [pickupLabel]="detail.pickupLabel"
+            [dropoffLabel]="detail.dropoffLabel"
+          ></app-route-timeline>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" sizeMd="10" sizeLg="8">
+          <ion-text class="driver-history-detail__divider" aria-hidden="true"></ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center driver-history-detail__section">
+        <ion-col size="12" sizeMd="10" sizeLg="8" class="driver-history-detail__rows">
+          <app-detail-info-row
+            [label]="'DRIVER.HOME.FARE_LABEL' | translate"
+            [value]="fareLabel"
+          ></app-detail-info-row>
+          <app-detail-info-row
+            [label]="'DRIVER.HOME.PAYMENT_LABEL' | translate"
+            [value]="detail.paymentMethod"
+          ></app-detail-info-row>
+          <app-detail-info-row
+            [label]="'DRIVER.HISTORY.ORDER_STATUS' | translate"
+            [value]="'DRIVER.HISTORY.STATUS_SUCCESS' | translate"
+            valueColor="success"
+          ></app-detail-info-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  }
+</ion-content>

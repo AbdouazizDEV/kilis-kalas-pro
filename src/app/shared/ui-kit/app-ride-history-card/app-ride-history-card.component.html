@@ -1,0 +1,23 @@
+<ion-grid class="app-ride-history-card" (click)="onOpen()">
+  <ion-row class="ion-align-items-center ion-nowrap">
+    <ion-col size="auto" class="app-ride-history-card__map-col">
+      <ion-img class="app-ride-history-card__map" [src]="mapImageUrl" alt=""></ion-img>
+    </ion-col>
+
+    <ion-col class="app-ride-history-card__content">
+      <ion-text class="app-ride-history-card__plate">{{ plateNumber }}</ion-text>
+      <ion-text class="app-ride-history-card__date">{{ dateLabel }}</ion-text>
+
+      <ion-row class="app-ride-history-card__footer ion-align-items-center ion-justify-content-between ion-nowrap">
+        <ion-col size="auto" class="app-ride-history-card__fare-col">
+          <ion-text class="app-ride-history-card__fare">{{ fareLabel }}</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button class="app-ride-history-card__action" fill="clear" shape="round" (click)="onOpen(); $event.stopPropagation()">
+            <ion-icon name="arrow-up-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-grid>

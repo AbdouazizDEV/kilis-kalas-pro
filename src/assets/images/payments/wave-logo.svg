@@ -1,0 +1,7 @@
+<svg width="67" height="67" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="33.5" cy="33.5" r="33.5" fill="white"/>
+  <path d="M18 42C22 30 28 24 33.5 24C39 24 45 30 49 42" stroke="#1CC8FE" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="26" cy="28" r="3" fill="#1CC8FE"/>
+  <circle cx="41" cy="28" r="3" fill="#1CC8FE"/>
+  <text x="33.5" y="58" text-anchor="middle" fill="#1CC8FE" font-family="Arial, sans-serif" font-size="10" font-weight="700">Wave</text>
+</svg>

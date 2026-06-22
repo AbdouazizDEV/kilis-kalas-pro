@@ -1,0 +1,46 @@
+<app-driver-subpage-header
+  titleKey="DRIVER.HELP.TITLE"
+  backHref="/driver/home"
+></app-driver-subpage-header>
+
+<ion-content [fullscreen]="true" class="driver-help">
+  <ion-grid class="driver-help__layout">
+    <ion-row>
+      <ion-col size="12">
+        <app-help-tabs
+          [options]="tabOptions"
+          [selectedId]="selectedTab()"
+          (selectedChange)="onTabChange($event)"
+        ></app-help-tabs>
+      </ion-col>
+    </ion-row>
+
+    @if (selectedTab() === 'faq') {
+      <ion-row class="driver-help__faq-row">
+        <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+          @for (item of faqItems; track item.id) {
+            <app-faq-accordion-item
+              [questionKey]="item.questionKey"
+              [answerKey]="item.answerKey"
+            ></app-faq-accordion-item>
+          }
+        </ion-col>
+      </ion-row>
+    } @else {
+      <ion-row class="driver-help__contact-row">
+        <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+          <ion-list class="driver-help__contact-list" lines="none">
+            @for (item of contactItems; track item.id) {
+              <ion-item button detail="false" class="driver-help__contact-item" (click)="openContact(item.action, item.value)">
+                <ion-label>
+                  <p class="driver-help__contact-label">{{ item.labelKey | translate }}</p>
+                  <h3 class="driver-help__contact-value">{{ item.value }}</h3>
+                </ion-label>
+              </ion-item>
+            }
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    }
+  </ion-grid>
+</ion-content>

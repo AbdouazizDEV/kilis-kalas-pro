@@ -1,44 +1,88 @@
 .driver-menu {
-  --background: #f9f9f9;
+  --background: linear-gradient(180deg, #f3f4f6 0%, #f9fafb 28%, #ffffff 100%);
 
   &__header {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 3;
   }
 
   &__toolbar {
     --background: transparent;
     --border-width: 0;
-    --padding-top: 9.73%;
-    --padding-start: 20px;
-    --padding-end: 20px;
-    --min-height: 88px;
+    --padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 64px;
   }
 
-  &__back {
-    --padding-start: 0;
-    --padding-end: 0;
-    margin: 0;
-    height: auto;
+  &__layout {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  }
+
+  &__hero-col {
+    padding: 0;
   }
 
   &__hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 114px 20px 24px;
-    background: linear-gradient(180deg, #10b981 0%, #10b981 209px, #f9f9f9 209px);
-    border-radius: 0 0 23px 23px;
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #059669 0%, #10b981 42%, #34d399 100%);
+    border-radius: 0 0 28px 28px;
+    padding: calc(env(safe-area-inset-top, 0px) + 56px) 20px 64px;
+  }
+
+  &__decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__orb {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+
+    &--one {
+      width: 120px;
+      height: 120px;
+      top: -24px;
+      right: -28px;
+    }
+
+    &--two {
+      width: 88px;
+      height: 88px;
+      bottom: 18px;
+      left: -20px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &__avatar-col {
+    position: relative;
+    z-index: 1;
   }
 
   &__avatar {
-    width: 147px;
-    height: 147px;
-    border: 4px solid #e5eff4;
-    background: #e5eff4;
+    width: min(128px, 32vw);
+    height: min(128px, 32vw);
+    margin: 0 auto;
+    border: 4px solid #ffffff;
+    background: #f3f4f6;
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.14),
+      0 2px 8px rgba(0, 0, 0, 0.06);
 
     ion-img,
     .driver-menu__avatar-fallback {
@@ -49,73 +93,164 @@
   }
 
   &__avatar-fallback {
-    font-size: 72px;
-    color: rgba(0, 0, 0, 0.2);
+    font-size: clamp(44px, 11vw, 60px);
+    color: rgba(0, 0, 0, 0.18);
+  }
+
+  &__identity {
+    margin-top: -48px;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px 12px;
   }
 
   &__name {
     display: block;
-    margin-top: 18px;
     font-family: var(--kk-font-body);
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 160%;
-    color: #000000;
-    text-align: center;
+    font-weight: 700;
+    font-size: clamp(20px, 5vw, 22px);
+    line-height: 1.3;
+    color: #111827;
+    letter-spacing: -0.02em;
+  }
+
+  &__role {
+    --background: rgba(16, 185, 129, 0.12);
+    --color: #047857;
+    margin-top: 8px;
+    height: 28px;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    ion-label {
+      margin: 0;
+      padding: 0 4px;
+    }
+  }
+
+  &__nav-row {
+    margin-top: 4px;
+  }
+
+  &__nav-col {
+    padding: 0 16px;
   }
 
   &__list {
-    margin: 24px 18px 0;
-    padding: 15px 18px;
-    background: #fdfefe;
-    border-radius: 17px;
+    margin: 0;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.04),
+      0 16px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
   }
 
   &__item {
     --background: transparent;
-    --padding-start: 0;
-    --inner-padding-end: 0;
-    --min-height: 50px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.23);
-    margin-bottom: 10px;
+    --background-hover: rgba(16, 185, 129, 0.06);
+    --background-activated: rgba(16, 185, 129, 0.1);
+    --background-focused: rgba(16, 185, 129, 0.06);
+    --padding-start: 8px;
+    --inner-padding-end: 8px;
+    --min-height: 58px;
+    border-radius: 16px;
+    margin-bottom: 4px;
+    transition: transform 0.15s ease;
 
     &:last-child {
-      border-bottom: none;
       margin-bottom: 0;
+    }
+
+    &:active {
+      transform: scale(0.985);
     }
   }
 
+  &__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-right: 12px;
+    border-radius: 14px;
+    background: rgba(16, 185, 129, 0.1);
+    flex-shrink: 0;
+  }
+
   &__item-icon {
-    margin-right: 13px;
-    font-size: 30px;
+    font-size: 22px;
     color: #10b981;
   }
 
-  ion-label {
+  &__item-label {
     font-family: var(--kk-font-body);
     font-weight: 600;
-    font-size: 17px;
-    line-height: 24px;
-    color: #000000;
+    font-size: 16px;
+    line-height: 22px;
+    color: #111827;
+    letter-spacing: -0.01em;
+  }
+
+  &__chevron {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.28);
+  }
+
+  &__logout-row {
+    margin-top: 20px;
+  }
+
+  &__logout-col {
+    padding: 0 16px;
   }
 
   &__logout {
-    --background: #dc2626;
-    --background-hover: #c81e1e;
-    --background-activated: #b91c1c;
-    --border-radius: 17px;
-    --color: #fdfefe;
+    --background: rgba(220, 38, 38, 0.08);
+    --background-hover: rgba(220, 38, 38, 0.12);
+    --background-activated: rgba(220, 38, 38, 0.16);
+    --border-radius: 16px;
+    --color: #dc2626;
     --box-shadow: none;
-    height: 50px;
-    margin: 24px 18px calc(24px + env(safe-area-inset-bottom, 0px));
+    height: 54px;
+    margin: 0;
     font-family: var(--kk-font-body);
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 24px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: none;
 
     ion-icon {
-      font-size: 24px;
-      margin-right: 13px;
+      font-size: 22px;
+      margin-right: 8px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .driver-menu {
+    &__hero {
+      padding-bottom: 72px;
+    }
+
+    &__avatar {
+      width: 140px;
+      height: 140px;
+    }
+
+    &__identity {
+      margin-top: -54px;
+    }
+
+    &__nav-col,
+    &__logout-col {
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
 }

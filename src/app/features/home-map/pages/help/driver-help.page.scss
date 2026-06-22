@@ -1,0 +1,72 @@
+.driver-help {
+  --background: #f9f9f9;
+
+  &__layout {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 0 calc(24px + env(safe-area-inset-bottom, 0px));
+  }
+
+  &__faq-row {
+    margin-top: 24px;
+    padding: 0 18px;
+  }
+
+  &__contact-row {
+    margin-top: 24px;
+    padding: 0 18px;
+  }
+
+  &__contact-list {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  &__contact-item {
+    --background: #fdfefe;
+    --padding-start: 20px;
+    --inner-padding-end: 20px;
+    --min-height: 64px;
+    border-radius: 17px;
+    margin-bottom: 12px;
+  }
+
+  &__contact-label {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.55);
+    margin-bottom: 4px;
+  }
+
+  &__contact-value {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000000;
+  }
+}
+
+@media (min-width: 768px) {
+  .driver-help {
+    &__faq-row,
+    &__contact-row {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .driver-help__layout {
+    max-width: 840px;
+  }
+}

@@ -1,0 +1,11 @@
+<ion-item
+  button
+  detail="false"
+  lines="none"
+  class="app-document-list-item"
+  [class.app-document-list-item--last]="!showDivider"
+  (click)="onClick()"
+>
+  <ion-label class="app-document-list-item__label">{{ labelKey | translate }}</ion-label>
+  <ion-icon slot="end" name="chevron-forward-outline" class="app-document-list-item__icon"></ion-icon>
+</ion-item>

@@ -1,0 +1,22 @@
+<app-driver-subpage-header
+  titleKey="DRIVER.HISTORY.TITLE"
+  backHref="/driver/home"
+></app-driver-subpage-header>
+
+<ion-content [fullscreen]="true" class="driver-history">
+  <ion-grid class="driver-history__layout">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeMd="10" sizeLg="8">
+        @for (item of items; track item.id) {
+          <app-ride-history-card
+            [plateNumber]="item.plateNumber"
+            [dateLabel]="item.dateLabel"
+            [fareLabel]="fareLabel(item.fareAmount)"
+            [mapImageUrl]="item.mapImageUrl"
+            (cardClick)="openDetail(item.id)"
+          ></app-ride-history-card>
+        }
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-grid class="app-route-timeline">
+  <ion-row class="ion-nowrap">
+    <ion-col size="auto" class="app-route-timeline__track-col">
+      <ion-text class="app-route-timeline__dot" aria-hidden="true"></ion-text>
+      <ion-text class="app-route-timeline__line" aria-hidden="true"></ion-text>
+      <ion-icon name="location-outline" class="app-route-timeline__pin" aria-hidden="true"></ion-icon>
+    </ion-col>
+
+    <ion-col class="app-route-timeline__labels-col">
+      <ion-text class="app-route-timeline__label">
+        {{ 'DRIVER.HISTORY.DEPARTURE' | translate }} : {{ pickupLabel }}
+      </ion-text>
+      <ion-text class="app-route-timeline__label">
+        {{ 'DRIVER.HISTORY.ARRIVAL' | translate }} : {{ dropoffLabel }}
+      </ion-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>

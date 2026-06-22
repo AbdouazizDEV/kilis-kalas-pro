@@ -1,0 +1,15 @@
+<ion-header class="driver-subpage-header ion-no-border">
+  <ion-toolbar>
+    <ion-grid class="driver-subpage-header__grid">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <app-back-button [defaultHref]="backHref"></app-back-button>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-text class="driver-subpage-header__title">{{ titleKey | translate }}</ion-text>
+        </ion-col>
+        <ion-col size="auto" class="driver-subpage-header__spacer" aria-hidden="true"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>

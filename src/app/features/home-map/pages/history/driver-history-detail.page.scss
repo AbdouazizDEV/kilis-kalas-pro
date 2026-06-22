@@ -1,0 +1,87 @@
+.driver-history-detail {
+  --background: #f9f9f9;
+
+  &__layout {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+  }
+
+  &__profile {
+    padding-bottom: 8px;
+  }
+
+  &__avatar {
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 12px;
+    background: #e5eff4;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    ion-img,
+    .driver-history-detail__avatar-fallback {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__avatar-fallback {
+    font-size: 48px;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  &__name {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+    color: #000000;
+  }
+
+  &__vehicle {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--kk-font-body);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 21px;
+    color: #000000;
+  }
+
+  &__section {
+    margin-top: 20px;
+  }
+
+  &__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__divider {
+    display: block;
+    width: 100%;
+    height: 0;
+    margin: 20px 0 0;
+    border-top: 1px dashed rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (min-width: 768px) {
+  .driver-history-detail__layout {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .driver-history-detail__layout {
+    max-width: 840px;
+  }
+}

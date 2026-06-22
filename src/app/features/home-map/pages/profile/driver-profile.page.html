@@ -1,0 +1,122 @@
+<ion-content [fullscreen]="true" class="driver-profile">
+  <ion-grid class="driver-profile__layout">
+    <ion-row>
+      <ion-col size="12" class="driver-profile__hero-col">
+        <app-driver-profile-hero
+          [fullName]="fullName"
+          [photoUrl]="photoUrl()"
+          (backClick)="goBack()"
+          (editPhotoClick)="editPhoto()"
+        ></app-driver-profile-hero>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="driver-profile__identity ion-justify-content-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-text class="driver-profile__name">{{ fullName }}</ion-text>
+        <ion-chip class="driver-profile__role" color="success">
+          <ion-label>{{ 'DRIVER.PROFILE.ROLE' | translate }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="driver-profile__form-row ion-justify-content-center">
+      <ion-col size="12" sizeMd="10" sizeLg="8" class="driver-profile__form-col">
+        <ion-card class="driver-profile__card">
+          <ion-card-header>
+            <ion-card-title>{{ 'DRIVER.PROFILE.TITLE' | translate }}</ion-card-title>
+            <ion-card-subtitle>{{ 'DRIVER.PROFILE.SUBTITLE' | translate }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <form [formGroup]="form">
+              <ion-grid class="driver-profile__fields">
+                <ion-row>
+                  <ion-col size="12" sizeMd="6">
+                    <app-input
+                      formControlName="firstName"
+                      variant="pill"
+                      pillShape="soft"
+                      [label]="'DRIVER.PROFILE.FIRST_NAME' | translate"
+                      [placeholder]="'COMMON.PLACEHOLDER' | translate"
+                      [errorMessage]="
+                        form.controls.firstName.touched && form.controls.firstName.invalid
+                          ? ('COMMON.REQUIRED' | translate)
+                          : ''
+                      "
+                    ></app-input>
+                  </ion-col>
+
+                  <ion-col size="12" sizeMd="6">
+                    <app-input
+                      formControlName="lastName"
+                      variant="pill"
+                      pillShape="soft"
+                      [label]="'DRIVER.PROFILE.LAST_NAME' | translate"
+                      [placeholder]="'COMMON.PLACEHOLDER' | translate"
+                      [errorMessage]="
+                        form.controls.lastName.touched && form.controls.lastName.invalid
+                          ? ('COMMON.REQUIRED' | translate)
+                          : ''
+                      "
+                    ></app-input>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col size="12">
+                    <app-input
+                      formControlName="email"
+                      type="email"
+                      variant="pill"
+                      pillShape="soft"
+                      [label]="'DRIVER.PROFILE.EMAIL' | translate"
+                      [placeholder]="'DRIVER.PROFILE.EMAIL_PLACEHOLDER' | translate"
+                      [errorMessage]="
+                        form.controls.email.touched && form.controls.email.invalid
+                          ? ('DRIVER.PROFILE.EMAIL_INVALID' | translate)
+                          : ''
+                      "
+                    ></app-input>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col size="12">
+                    <app-phone-input
+                      formControlName="phone"
+                      [label]="'DRIVER.PROFILE.PHONE' | translate"
+                      [placeholder]="'DRIVER.PROFILE.PHONE_PLACEHOLDER' | translate"
+                      [errorMessage]="
+                        form.controls.phone.touched && form.controls.phone.invalid
+                          ? ('COMMON.REQUIRED' | translate)
+                          : ''
+                      "
+                    ></app-phone-input>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer class="driver-profile__footer ion-no-border">
+    <ion-toolbar>
+      <app-pill-button (buttonClick)="saveProfile()">
+        {{ 'DRIVER.PROFILE.SAVE' | translate }}
+      </app-pill-button>
+    </ion-toolbar>
+  </ion-footer>
+
+  <ion-toast
+    [isOpen]="savedToastOpen"
+    [message]="'DRIVER.PROFILE.SAVED' | translate"
+    duration="2200"
+    position="bottom"
+    color="success"
+    (didDismiss)="savedToastOpen = false"
+  ></ion-toast>
+</ion-content>

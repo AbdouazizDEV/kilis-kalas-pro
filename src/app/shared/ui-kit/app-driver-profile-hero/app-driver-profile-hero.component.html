@@ -1,0 +1,42 @@
+<ion-grid class="driver-profile-hero">
+  <ion-row class="driver-profile-hero__toolbar">
+    <ion-col size="auto">
+      <app-circle-icon-button
+        icon="arrow-back-outline"
+        [dark]="true"
+        [ariaLabel]="'COMMON.BACK' | translate"
+        (buttonClick)="onBack()"
+      ></app-circle-icon-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="driver-profile-hero__decor" aria-hidden="true">
+    <ion-col size="12">
+      <ion-text class="driver-profile-hero__orb driver-profile-hero__orb--one"></ion-text>
+      <ion-text class="driver-profile-hero__orb driver-profile-hero__orb--two"></ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="driver-profile-hero__body ion-justify-content-center">
+    <ion-col size="12" class="ion-text-center driver-profile-hero__profile-col">
+      <ion-avatar class="driver-profile-hero__avatar">
+        @if (photoUrl) {
+          <ion-img [src]="photoUrl" [alt]="fullName"></ion-img>
+        } @else {
+          <ion-icon name="person" class="driver-profile-hero__avatar-fallback"></ion-icon>
+        }
+
+        @if (editable) {
+          <ion-button
+            class="driver-profile-hero__edit"
+            fill="clear"
+            shape="round"
+            (click)="onEditPhoto()"
+          >
+            <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        }
+      </ion-avatar>
+    </ion-col>
+  </ion-row>
+</ion-grid>

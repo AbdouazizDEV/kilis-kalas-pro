@@ -1,0 +1,93 @@
+<app-driver-subpage-header
+  titleKey="DRIVER.DASHBOARD.TITLE"
+  backHref="/driver/home"
+></app-driver-subpage-header>
+
+<ion-content [fullscreen]="true" class="driver-dashboard">
+  <ion-grid class="driver-dashboard__layout">
+    <ion-row>
+      <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+        <app-period-segment
+          [options]="periodOptions"
+          [selectedId]="selectedPeriod()"
+          (selectedChange)="onPeriodChange($event)"
+        ></app-period-segment>
+      </ion-col>
+    </ion-row>
+
+    @if (showWeekdayStrip()) {
+      <ion-row class="driver-dashboard__weekday-row">
+        <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+          <app-weekday-strip
+            [days]="dashboard().days"
+            [selectedId]="dashboard().selectedDayId"
+            (selectedChange)="onDayChange($event)"
+          ></app-weekday-strip>
+        </ion-col>
+      </ion-row>
+    }
+
+    <ion-row class="driver-dashboard__chart-row">
+      <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+        <app-earnings-bar-chart [bars]="dashboard().chartBars"></app-earnings-bar-chart>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="driver-dashboard__stats-row">
+      <ion-col size="6" sizeMd="5" offsetMd="1" offsetLg="2">
+        <app-dashboard-stat-card
+          [label]="'DRIVER.DASHBOARD.DAY_BALANCE' | translate"
+          [value]="dayBalanceLabel()"
+        ></app-dashboard-stat-card>
+      </ion-col>
+      <ion-col size="6" sizeMd="5">
+        <app-dashboard-stat-card
+          [label]="'DRIVER.DASHBOARD.AMOUNT_DUE' | translate"
+          [value]="amountDueLabel()"
+        ></app-dashboard-stat-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="driver-dashboard__alert-row">
+      <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+        <ion-grid class="driver-dashboard__alert">
+          <ion-row class="ion-align-items-start ion-nowrap">
+            <ion-col size="auto">
+              <ion-icon name="information-circle-outline" class="driver-dashboard__alert-icon"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-text class="driver-dashboard__alert-text">
+                {{ 'DRIVER.DASHBOARD.PAYMENT_WARNING' | translate }}
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+        <ion-text class="driver-dashboard__scan-title">
+          {{ 'DRIVER.DASHBOARD.SCAN_TO_PAY' | translate }}
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="driver-dashboard__payments-row">
+      <ion-col size="12" sizeMd="10" sizeLg="8" offsetMd="1" offsetLg="2">
+        <ion-grid class="driver-dashboard__payments">
+          <ion-row class="ion-nowrap ion-align-items-stretch">
+            @for (method of dashboard().paymentMethods; track method.provider) {
+              <ion-col size="6" class="driver-dashboard__payment-col">
+                <app-payment-method-card
+                  [provider]="method.provider"
+                  [imageUrl]="method.imageUrl"
+                ></app-payment-method-card>
+              </ion-col>
+            }
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -91,6 +91,62 @@
       "MODEL_PLACEHOLDER": " Ex: Corolla, Wave…",
       "PREVIEW_HINT": " Marque ak modèle oto bi"
     },
+    "PROFILE": {
+      "TITLE": "Xibaar yu bopp",
+      "SUBTITLE": "Soppi sa xibaar yu passagers yi mën a gis.",
+      "ROLE": "Chauffeur",
+      "FIRST_NAME": "Tur",
+      "LAST_NAME": "Sant",
+      "EMAIL": "Email",
+      "EMAIL_PLACEHOLDER": "exemple@email.com",
+      "EMAIL_INVALID": "Email bi baaxul",
+      "PHONE": "Telefon",
+      "PHONE_PLACEHOLDER": "77 000 00 00",
+      "SAVE": "Aar soppi yi",
+      "SAVED": "Profil bi soppi na"
+    },
+    "DASHBOARD": {
+      "TITLE": "Tableau de bord",
+      "PERIOD_WEEK": "Ayubés",
+      "PERIOD_MONTH": "Weer",
+      "PERIOD_YEAR": "At",
+      "DAY_BALANCE": "Soldes bés bi",
+      "AMOUNT_DUE": "Montants a verser",
+      "PAYMENT_WARNING": "Attention sa compte dina tëj sudee nga deful versement bés bi.",
+      "SCAN_TO_PAY": "Scan ngir yónnee montant bi"
+    },
+    "DOCUMENTS": {
+      "TITLE": "Dokumaan",
+      "TRANSPORT": "Moyen de transport",
+      "NATIONAL_ID": "Photo de la CNI",
+      "LICENSE": "Photo du permis de conduire",
+      "VEHICLE": "Numéro plaque et marque",
+      "INSURANCE": "Photo de l'assurance"
+    },
+    "HISTORY": {
+      "TITLE": "Historique",
+      "DEPARTURE": "Départ",
+      "ARRIVAL": "Arrivé",
+      "RIDE_COMPLETED": "Course terminé",
+      "DURATION": "Durée",
+      "DISTANCE": "Distance",
+      "OFFER_TYPE": "Type d'offre",
+      "ORDER_STATUS": "Statut de la commande",
+      "STATUS_SUCCESS": "Réussi"
+    },
+    "HELP": {
+      "TITLE": "Ndimbal",
+      "TAB_FAQ": "FAQ",
+      "TAB_CONTACT": "Contact",
+      "FAQ_ORDER_QUESTION": "Comment faire une commande",
+      "FAQ_ORDER_ANSWER": "Acceptez une course ci écran d'accueil bi, topp itinéraire bi ba noppi.",
+      "FAQ_PAYMENT_QUESTION": "Comment recevoir mes paiements ?",
+      "FAQ_PAYMENT_ANSWER": "Sa gains yi nekk nañu ci tableau de bord. Defal versement bés bi ci Wave walla Orange Money.",
+      "FAQ_DOCUMENTS_QUESTION": "Comment mettre à jour mes documents ?",
+      "FAQ_DOCUMENTS_ANSWER": "Ubbi menu Documents te tànn dokumaan bi nga bëgg soppi.",
+      "CONTACT_PHONE": "Téléphone support",
+      "CONTACT_EMAIL": "Email support"
+    },
     "PROFILE_PHOTO": {
       "TITLE": " Jël nataal profil",
       "INSTRUCTIONS": " Yokk nataal bu sell ak bu dëggu.\n Wajal ne sa kan mën nañu ko gis bu baax, amul lunettes soleil, casquette walla filtre.\n Jël nataal ci barab bu leer ak fond bu yomb.\n Nataal bii dafay may passagers yi a gëm te yokk kërgu ak kaaraange ci platform bi.",

@@ -1,0 +1,13 @@
+<ion-grid class="app-detail-info-row">
+  <ion-row class="ion-justify-content-between ion-align-items-start ion-nowrap">
+    <ion-col size="auto" class="app-detail-info-row__label-col">
+      <ion-text class="app-detail-info-row__label">{{ label }}</ion-text>
+    </ion-col>
+    <ion-col class="app-detail-info-row__value-col">
+      <ion-text
+        class="app-detail-info-row__value"
+        [class.app-detail-info-row__value--success]="valueColor === 'success'"
+      >{{ value }}</ion-text>
+    </ion-col>
+  </ion-row>
+</ion-grid>

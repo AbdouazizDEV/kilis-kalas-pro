@@ -5,6 +5,7 @@ import { addIcons } from 'ionicons';
 import { eyeOffOutline, eyeOutline } from 'ionicons/icons';
 
 export type AppInputVariant = 'default' | 'pill';
+export type AppInputPillShape = 'round' | 'soft';
 
 @Component({
   selector: 'app-input',
@@ -25,6 +26,7 @@ export class AppInputComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' | 'password' | 'tel' | 'number' = 'text';
   @Input() variant: AppInputVariant = 'default';
+  @Input() pillShape: AppInputPillShape = 'round';
   @Input() errorMessage = '';
   @Input() disabled = false;
   @Input() showPasswordToggle = false;

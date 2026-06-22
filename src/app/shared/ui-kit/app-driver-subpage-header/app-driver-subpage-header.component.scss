@@ -1,0 +1,32 @@
+.driver-subpage-header {
+  ion-toolbar {
+    --background: #f9f9f9;
+    --border-width: 0;
+    --padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+    --padding-bottom: 8px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --min-height: 64px;
+  }
+
+  &__grid {
+    --ion-grid-padding: 0;
+    --ion-grid-column-padding: 0;
+    width: 100%;
+  }
+
+  &__title {
+    display: block;
+    font-family: var(--kk-font-body);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 19px;
+    color: #000000;
+  }
+
+  &__spacer {
+    width: 50px;
+    min-width: 50px;
+    flex: 0 0 50px;
+  }
+}
